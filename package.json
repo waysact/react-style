@@ -1,0 +1,24 @@
+{
+  "name": "IntegratedCSS",
+  "version": "0.0.1-alpha",
+  "description": "Integrate CSS into your React.js component",
+  "homepage": "https://github.com/SanderSpies/IntegratedCSS",
+  "author": {
+    "name": "Sander Spies",
+    "email": "sandermail@gmail.com"
+  },
+  "bin": {
+    "integrate-css": "TransformerCLI.js"
+  },
+  "license": "bsd",
+  "dependencies": {
+    "react": "~0.11.1",
+    "recast":"~0.6.9",
+    "glob": "~4.0.5",
+    "yargs": "~1.3.1"
+  },
+  "repository": {
+    "type":"git",
+    "url":"https://github.com/SanderSpies/IntegratedCSS.git"
+  }
+}
