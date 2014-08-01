@@ -1,5 +1,5 @@
 {
-  "name": "IntegratedCSS",
+  "name": "integratedcss",
   "version": "0.0.1-alpha",
   "description": "Integrate CSS into your React.js component",
   "homepage": "https://github.com/SanderSpies/IntegratedCSS",
@@ -10,7 +10,7 @@
   "bin": {
     "integrate-css": "TransformerCLI.js"
   },
-  "license": "bsd",
+  "license": "MIT",
   "dependencies": {
     "react": "~0.11.1",
     "recast":"~0.6.9",
