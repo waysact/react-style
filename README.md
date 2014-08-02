@@ -26,7 +26,7 @@ var Button = React.createClass({
 
   render: function() {
     var css = this.state.hover ? this.css.state2 : this.css.state1;
-    return <div css={css}>
+    return <div className={css}>
         Example
     </div>;
   },
@@ -61,7 +61,7 @@ var Button = React.createClass({
   },
 
   render: function() {
-    var css = this.state.hover ? "a" : "b";
+    var css = this.state.hover ? " a" : " b";
     return <div className={css}>
         Example
     </div>;
@@ -75,8 +75,20 @@ var Button = React.createClass({
 
 ```
 
+What does it actually do?
+---
+- remove the CSS block
+- connect the (something.)css.something blocks to css
+- create CSS with annoyingly small CSS className selectors
+- isn't smart about actual references to the css object
+
+TODO
+---
+- fix the generation of CSS classNames to support more than 1 character classNames
+
 Usage
 ---
+node TransformerCLI.js --input=example/**/*.js --output=build/ --css=build/styling/lala.css
 
 LICENSE
 ---

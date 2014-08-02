@@ -3,30 +3,38 @@
 var fs = require('fs');
 var recast = require('recast');
 var glob = require('glob');
+var css = require('css-builder')();
 var Syntax = recast.Syntax;
 var b = recast.types.builders;
 
 var currCSSKey = 0;
 var uniqueCSSKeys = {};
 var allowedCSSClassNameChars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
-function getUniqueCSSKey(className) {
-  if (uniqueCSSKeys[className]) {
-    return uniqueCSSKeys[className];
+var cssMapping = {};
+
+function getUniqueCSSKey(fileName, className) {
+  if (uniqueCSSKeys[fileName + className]) {
+    return uniqueCSSKeys[fileName + className];
   }
-  return uniqueCSSKeys[className] = allowedCSSClassNameChars[currCSSKey++];
+  // TODO: do something smart
+
+  return uniqueCSSKeys[fileName + className] = allowedCSSClassNameChars[currCSSKey++];
 }
 
-function addCSSClass(className, classBody) {
-  cssMapping[getUniqueCSSKey(className)] = classBody;
+function addCSSClass(fileName, className, classBody) {
+  cssMapping[getUniqueCSSKey(fileName, className)] = classBody;
 }
 
-function writeCSS() {
+function convertToCSS(cssJSON) {
+  var classNames = Object.keys(cssJSON);
 
+  for (var i = 0, l = classNames.length; i < l; i++) {
+    var className = classNames[i];
+    css.rule('.' + className, cssJSON[className]);
+  }
+
+  return css.toString();
 }
-
-var cssMapping = {
-
-};
 
 var Transformer = { // master in disguise
 
@@ -59,11 +67,11 @@ var Transformer = { // master in disguise
               if(node.parentPath.parentPath.value.callee.type === 'MemberExpression' &&
                 node.parentPath.parentPath.value.callee.property.name === 'createClass') {
                 var cssAst = property;
-                var css = (Function('return {' + recast.print(cssAst).code + '}'))();
-                var classNames = Object.keys(css.css);
+                var cssCode = (Function('return {' + recast.print(cssAst).code + '}'))();
+                var classNames = Object.keys(cssCode.css);
                 for (var j = 0, l2 = classNames.length; j < l2; j++) {
                   var className = classNames[j];
-                  addCSSClass(className, css.css[className]);
+                  addCSSClass(fileName, className, cssCode.css[className]);
                 }
               }
               else {
@@ -76,7 +84,7 @@ var Transformer = { // master in disguise
                   }
                 });
                 if (cssClassName) {
-                  props.push(b.property('init', b.identifier('css'), b.literal(' ' + getUniqueCSSKey(cssClassName))));
+                  props.push(b.property('init', b.identifier('css'), b.literal(' ' + getUniqueCSSKey(fileName, cssClassName))));
                 }
                 else {
                   props.push(property);
@@ -91,46 +99,19 @@ var Transformer = { // master in disguise
           return b.objectExpression(props);
         },
 
-        visitAssignmentExpression: function(node) {
-          if (node.value.right.object){
-            if(node.value.right.object.property && node.value.right.object.property.name === 'css') {
-              var cssClassName;
-              this.traverse(node, {
-                visit: function(b) {
-                  if (b.value.type === 'MemberExpression') {
-                    cssClassName = b.value.property.name;
-                  }
-                }
-              });
-              if (cssClassName) {
-                return b.assignmentExpression(node.value.operator, node.value.left, b.literal(' ' + getUniqueCSSKey(cssClassName)));
-              }
-            }
-            else if (node.value.right.object.name === 'css') {
-              return b.assignmentExpression(node.value.operator, node.value.left, b.literal(' ' + getUniqueCSSKey(node.value.right.property.name)));
-            }
-          }
-          this.traverse(node);
-        },
+        visitMemberExpression: function(node) {
 
-        visitVariableDeclarator: function(node) {
-          if (node.value.init.type === 'MemberExpression'){
-            if(node.value.init.object.property &&
-              node.value.init.object.property.name === 'css') {
-              var cssClassName = '';
-              this.traverse(node, {
-                visit: function(z) {
-                  if (z.value.type === 'MemberExpression') {
-                    cssClassName = z.value.property.name;
-                  }
-                }
-              });
-              return b.variableDeclarator(node.value.id, b.literal(' ' + getUniqueCSSKey(cssClassName)));
-            }
-            else if (node.value.init.object.name === 'css') {
-              return b.variableDeclarator(node.value.id, b.literal(' ' + getUniqueCSSKey(node.value.init.property.name)));
-            }
+          if (node.value.object.name === 'css') {
+            return b.literal(' ' + getUniqueCSSKey(fileName, node.value.property.name));
           }
+          else if (node.value.property.name === 'css') {
+            if (node.parent.value.property) {
+              var name = node.parent.value.property.name;
+              node.parent.replace(b.literal(' ' + getUniqueCSSKey(fileName, name)));
+            }
+            return false;
+          }
+
           this.traverse(node);
         }
       });
@@ -141,7 +122,7 @@ var Transformer = { // master in disguise
       })
     }
 
-    transformations.css = cssMapping;
+    transformations.css = convertToCSS(cssMapping);
 
     return transformations;
   }

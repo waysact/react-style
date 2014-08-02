@@ -11,8 +11,11 @@ var Button = React.createClass({
     normal: {
       backgroundColor: 'orange'
     },
-    normal_hover: {
+    hover: {
       backgroundColor: 'blue'
+    },
+    another: {
+      fontWeight: 'bold'
     }
   },
 
@@ -26,9 +29,9 @@ var Button = React.createClass({
     var css = this.css;
     var className = css.normal;
     if (this.state.hover) {
-      className += css.normal_hover;
+      className += css.hover;
     }
-    return React.DOM.div({css: className});
+    return React.DOM.div({className: className + css.normal + this.css.another});
   }
 
 });
