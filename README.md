@@ -26,9 +26,7 @@ var Button = React.createClass({
 
   render: function() {
     var css = this.state.hover ? this.css.state2 : this.css.state1;
-    return <div className={css}>
-        Example
-    </div>;
+    return React.DOM.div({className: css});
   },
 
   onMouseOver: function() {
@@ -62,9 +60,7 @@ var Button = React.createClass({
 
   render: function() {
     var css = this.state.hover ? " a" : " b";
-    return <div className={css}>
-        Example
-    </div>;
+    return React.DOM.div({className: css});
   },
 
   onMouseOver: function() {
@@ -88,7 +84,9 @@ TODO
 
 Usage
 ---
+```
 node TransformerCLI.js --input=example/**/*.js --output=build/ --css=build/styling/lala.css
+```
 
 LICENSE
 ---
