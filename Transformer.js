@@ -22,7 +22,15 @@ function getUniqueCSSKey(fileName, className) {
 }
 
 function addCSSClass(fileName, className, classBody) {
-  cssMapping[getUniqueCSSKey(fileName, className)] = classBody;
+  var classSplit = className.split(':');
+  var name = classSplit[0];
+  var pseudo;
+  if (classSplit.length > 1) {
+    pseudo = classSplit[1];
+  }
+  cssMapping[getUniqueCSSKey(fileName, name) + (pseudo ? ':' + pseudo : '')] = {
+    classBody: classBody
+  };
 }
 
 function convertToCSS(cssJSON) {
@@ -30,7 +38,8 @@ function convertToCSS(cssJSON) {
 
   for (var i = 0, l = classNames.length; i < l; i++) {
     var className = classNames[i];
-    css.rule('.' + className, cssJSON[className]);
+    var pseudo = cssJSON[className].pseudo;
+    css.rule('.' + className + (pseudo ? (':'+pseudo) : ''), cssJSON[className].classBody);
   }
 
   return css.toString();

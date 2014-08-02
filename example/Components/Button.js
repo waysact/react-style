@@ -16,6 +16,9 @@ var Button = React.createClass({
     },
     another: {
       fontWeight: 'bold'
+    },
+    'another:hover': {
+      fontStyle: 'italic'
     }
   },
 
@@ -31,6 +34,7 @@ var Button = React.createClass({
     if (this.state.hover) {
       className += css.hover;
     }
+
     return React.DOM.div({className: className + css.normal + this.css.another});
   }
 

@@ -1,6 +1,6 @@
 IntegratedCSS
 ===
-After integrating HTML into JavaScript by React.js, a logical next step is to do the same for CSS.
+After integrating HTML into JavaScript by [React.js](http://github.com/facebook/react), a logical next step is to do the same for CSS.
 
 Build with help of the awesome [recast](http://github.com/benjamn/recast) library.
 
@@ -70,6 +70,10 @@ var Button = React.createClass({
 });
 
 ```
+
+Why?
+---
+CSS is problematic to maintain.
 
 What does it actually do?
 ---
