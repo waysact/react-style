@@ -4,6 +4,7 @@ var esprima = require('esprima-fb');
 var fs = require('fs');
 var recast = require('recast');
 var glob = require('glob');
+var path = require('path');
 var css = require('css-builder')();
 var Syntax = recast.Syntax;
 var b = recast.types.builders;
@@ -91,12 +92,16 @@ var Transformer = { // master in disguise
             if (property.key.name === 'css') {
               if(node.parentPath.parentPath.value.callee.type === 'MemberExpression' &&
                 node.parentPath.parentPath.value.callee.property.name === 'createClass') {
-                var cssAst = property;
-                var cssCode = (Function('return {' + recast.print(cssAst).code + '}'))();
-                var classNames = Object.keys(cssCode.css);
+
+
+                var cssAst = property.value.body;
+                //var replaceFolder = file;
+                var cssCode = (Function('require', recast.print(cssAst).code.replace(/require\('/, 'require(\'./' + path.dirname(fileName) + '/')))(require);
+
+                var classNames = Object.keys(cssCode);
                 for (var j = 0, l2 = classNames.length; j < l2; j++) {
                   var className = classNames[j];
-                  addCSSClass(fileName, className, cssCode.css[className]);
+                  addCSSClass(fileName, className, cssCode[className]);
                 }
               }
               else {
@@ -125,16 +130,22 @@ var Transformer = { // master in disguise
         },
 
         visitMemberExpression: function(node) {
-
           if (node.value.object.name === 'css') {
+            console.log('aaaa');
             return b.literal(' ' + getUniqueCSSKey(fileName, node.value.property.name));
           }
           else if (node.value.property.name === 'css') {
-            if (node.parent.value.property) {
-              var name = node.parent.value.property.name;
-              node.parent.replace(b.literal(' ' + getUniqueCSSKey(fileName, name)));
+            //console.log(node.parent.parent.value.property);
+            if (node.parent.parent.value.property) {
+              var name = node.parent.parent.value.property.name;
+              node.parent.parent.replace(b.literal(' ' + getUniqueCSSKey(fileName, name)));
             }
             return false;
+          }
+          else if(node.value.object.callee &&
+            node.value.object.callee.name === 'css'){
+            var name = node.value.property.name;
+            node.replace(b.literal(' ' + getUniqueCSSKey(fileName, name)));
           }
 
           this.traverse(node);

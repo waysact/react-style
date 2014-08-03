@@ -9,14 +9,17 @@ Example
 ```
 var Button = React.createClass({
 
-  css: {
-    state1: {
-      backgroundColor: 'black'
-    },
-    state2: {
-      backgroundColor: 'white'
+  css: function() {
+    var vars = require('./vars'); // vars.js would export a black variable
+    return {
+      state1: {
+        backgroundColor: vars.black
+      },
+      state2: {
+        backgroundColor: 'white'
+      }
     }
-  }
+  },
 
   getInitialState: function() {
     return {
@@ -25,7 +28,7 @@ var Button = React.createClass({
   },
 
   render: function() {
-    var css = this.state.hover ? this.css.state2 : this.css.state1;
+    var css = this.state.hover ? this.css().state2 : this.css().state1;
     return <div className={css}>Example</div>;
   },
 
@@ -76,12 +79,12 @@ CSS is problematic to maintain and components give all the borders you actually 
 
 What does it actually do?
 ---
-- remove the CSS block
+- It takes out the ``css`` function and transform it into plain CSS
+- The ``css`` function is executed on its own, it has no reference to 'this'
 - connect the (something.)css.something blocks to CSS
 - create CSS with annoyingly small CSS className selectors (3 characters max - up to 140608 classes)
 - CSS is coupled to the component and can be passed to another component via props (``aProp={this.css.something}``)
 - isn't smart about actual references to the CSS object
-- the javascript code inside the CSS block isn't interpreted, so only Strings should be used as values
 
 Usage
 ---
