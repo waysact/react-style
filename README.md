@@ -68,19 +68,20 @@ var Button = React.createClass({
   }
 
 });
-
 ```
 
 Why?
 ---
-CSS is problematic to maintain.
+CSS is problematic to maintain and components give all the borders you actually need.
 
 What does it actually do?
 ---
 - remove the CSS block
-- connect the (something.)css.something blocks to css
-- create CSS with annoyingly small CSS className selectors
-- isn't smart about actual references to the css object
+- connect the (something.)css.something blocks to CSS
+- create CSS with annoyingly small CSS className selectors (3 characters max - up to 140908 classes)
+- CSS is coupled to the component and can be passed to another component via props (``aProp={this.css.something}``)
+- isn't smart about actual references to the CSS object
+- the javascript code inside the CSS block isn't interpreted, so only Strings should be used as values
 
 Usage
 ---
