@@ -1,6 +1,6 @@
 {
   "name": "integratedcss",
-  "version": "0.0.5-alpha",
+  "version": "0.0.6-alpha",
   "description": "Integrate CSS into your React.js component",
   "homepage": "https://github.com/SanderSpies/IntegratedCSS",
   "author": {

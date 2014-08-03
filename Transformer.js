@@ -91,7 +91,7 @@ function transform(fileName, contents) {
     },
 
     visitIdentifier: function(node) {
-      // TODO: do a proper scope analysis with escope, otherwise if can leave
+      // TODO: do a proper scope analysis with escope, otherwise it can leave
       // some unused imports
       if (node.parentPath !== 'MemberExpression' && requires[node.value.name]) {
         requires[node.value.name].counter += 1;
@@ -123,7 +123,7 @@ function transform(fileName, contents) {
                 }
               });
             }
-            var cssSrc = 'var __result__ = (function() {' + cssSrc + '})();'
+            cssSrc = 'var __result__ = (function() {' + cssSrc + '})();';
             var sandbox = {
               require: function(mod) {
                 return require('./' + path.join(path.dirname(fileName), mod));
@@ -164,20 +164,21 @@ function transform(fileName, contents) {
     },
 
     visitMemberExpression: function(node) {
+      var name;
       if (node.value.object.name === 'css') {
         return b.literal(' ' + getUniqueCSSKey(fileName, node.value.property.name));
       }
       else if (node.value.property.name === 'css') {
         //console.log(node.parent.parent.value.property);
         if (node.parent.parent.value.property) {
-          var name = node.parent.parent.value.property.name;
+          name = node.parent.parent.value.property.name;
           node.parent.parent.replace(b.literal(' ' + getUniqueCSSKey(fileName, name)));
         }
         return false;
       }
       else if(node.value.object.callee &&
         node.value.object.callee.name === 'css'){
-        var name = node.value.property.name;
+        name = node.value.property.name;
         node.replace(b.literal(' ' + getUniqueCSSKey(fileName, name)));
       }
 
