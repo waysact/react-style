@@ -10,16 +10,26 @@ var b = recast.types.builders;
 
 var currCSSKey = 0;
 var uniqueCSSKeys = {};
-var allowedCSSClassNameChars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+var allowedCSSClassNameChars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
 var cssMapping = {};
 
 function getUniqueCSSKey(fileName, className) {
   if (uniqueCSSKeys[fileName + className]) {
     return uniqueCSSKeys[fileName + className];
   }
-  // TODO: do something smart
 
-  return uniqueCSSKeys[fileName + className] = allowedCSSClassNameChars[currCSSKey++];
+  var key1pos = Math.floor(currCSSKey / (allowedCSSClassNameChars.length * allowedCSSClassNameChars.length));
+  var key1 = allowedCSSClassNameChars[key1pos - 1];
+  var key2pos = Math.floor((currCSSKey - (key1 ? key1pos * (allowedCSSClassNameChars.length * allowedCSSClassNameChars.length) : 0)) / allowedCSSClassNameChars.length);
+  var key2 = allowedCSSClassNameChars[key2pos - 1];
+  var key3 = allowedCSSClassNameChars[(currCSSKey - (key1 ? (key1pos * allowedCSSClassNameChars.length * allowedCSSClassNameChars.length) : 0) - (key2? key2pos * allowedCSSClassNameChars.length:0))];
+  var key = '';
+  if (key1) key += key1;
+  if (key2) key += key2;
+  if (key3) key += key3;
+  currCSSKey++;
+
+  return uniqueCSSKeys[fileName + className] = key;
 }
 
 function addCSSClass(fileName, className, classBody) {
