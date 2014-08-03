@@ -81,16 +81,27 @@ What does it actually do?
 ---
 - It takes out the ``css`` function and transform it into plain CSS
 - The ``css`` function is executed on its own, it has no reference to 'this'
-- connect the (something.)css.something blocks to CSS
+- connect the (something.)css().something blocks to CSS
 - create CSS with annoyingly small CSS className selectors (3 characters max - up to 140608 classes)
-- CSS is coupled to the component and can be passed to another component via props (``aProp={this.css.something}``)
-- isn't smart about actual references to the CSS object
+- CSS is coupled to the component and can be passed to another component via props (``aProp={this.css().something}``)
+- isn't smart about actual references to the CSS function
 
 Usage
 ---
 ```
 node TransformerCLI.js --input=example/**/*.js --output=build/ --css=build/styling/lala.css
 ```
+
+Other options
+---
+- [RCSS](https://github.com/chenglou/rcss)
+- [ReactStyles](https://github.com/hedgerwang/react-styles)
+- [react-css](https://github.com/elierotenberg/react-css)
+
+Biggest difference here is that IntegratedCSS is a CSS + JS preprocessor solution instead of a runtime solution.
+
+Also there is (from the React.js team):
+- [Inline Style Extension](https://github.com/reactjs/react-future/blob/master/04 - Layout/Inline Style Extension.md)
 
 LICENSE
 ---
