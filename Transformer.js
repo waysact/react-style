@@ -1,5 +1,6 @@
 'use strict';
 
+var esprima = require('esprima-fb');
 var fs = require('fs');
 var recast = require('recast');
 var glob = require('glob');
@@ -60,7 +61,12 @@ var Transformer = { // master in disguise
       var file = files[i];
       var fileName = file.name;
       var contents = file.contents;
-      var ast = recast.parse(String(contents));
+      var ast = recast.parse(
+        String(contents),
+        {
+          esprima: esprima
+        }
+      );
 
       recast.visit(ast, {
 

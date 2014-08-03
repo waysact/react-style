@@ -19,8 +19,7 @@ define(['react'], function(React) {
 
     render: function() {
       var test = true ? this.css.blue : this.css.red;
-
-      return React.DOM.span({className:this.css.normal}, null);
+      return <div className={this.css.normal + test} />;
     }
 
   });

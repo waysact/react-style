@@ -26,7 +26,7 @@ var Button = React.createClass({
 
   render: function() {
     var css = this.state.hover ? this.css.state2 : this.css.state1;
-    return React.DOM.div({className: css});
+    return <div className={css}>Example</div>;
   },
 
   onMouseOver: function() {
@@ -60,7 +60,7 @@ var Button = React.createClass({
 
   render: function() {
     var css = this.state.hover ? " a" : " b";
-    return React.DOM.div({className: css});
+    return <div className={css}>Example</div>;
   },
 
   onMouseOver: function() {

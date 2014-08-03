@@ -26,7 +26,8 @@ function createFolders(filePath) {
 
 glob(input, {}, function(err, fileNames) {
   var inputFiles = [];
-  for (var i = 0, l = fileNames.length; i < l; i++) {
+  var i, l;
+  for (i = 0, l = fileNames.length; i < l; i++) {
     var fileName = fileNames[i];
     var fileContents = fs.readFileSync(fileName);
     inputFiles.push({
@@ -42,16 +43,21 @@ glob(input, {}, function(err, fileNames) {
     if (err) {
       console.log('Something went wrong when trying to write the css file:', err);
     }
+    else {
+      console.log('CSS was written to given location');
+    }
   });
 
-  for (var i = 0, l = transformation.files.length; i < l; i++) {
+  for (i = 0, l = transformation.files.length; i < l; i++) {
     var file = transformation.files[i];
     createFolders(output + file.name);
 
     fs.writeFile(output + file.name, file.contents, function(err) {
-
       if (err) {
         console.log('Something went wrong when trying to write the ' + file.name + ' file:', err);
+      }
+      else {
+        console.log('JavaScript was written to given location');
       }
     });
   }

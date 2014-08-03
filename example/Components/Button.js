@@ -35,7 +35,7 @@ var Button = React.createClass({
       className += css.hover;
     }
 
-    return React.DOM.div({className: className + css.normal + this.css.another});
+    return <div className={className + css.normal + this.css.another} />;
   }
 
 });
