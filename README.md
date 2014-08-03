@@ -82,10 +82,6 @@ What does it actually do?
 - create CSS with annoyingly small CSS className selectors
 - isn't smart about actual references to the css object
 
-TODO
----
-- fix the generation of CSS classNames to support more than 1 character classNames
-
 Usage
 ---
 ```
