@@ -78,7 +78,7 @@ What does it actually do?
 ---
 - remove the CSS block
 - connect the (something.)css.something blocks to CSS
-- create CSS with annoyingly small CSS className selectors (3 characters max - up to 140908 classes)
+- create CSS with annoyingly small CSS className selectors (3 characters max - up to 140608 classes)
 - CSS is coupled to the component and can be passed to another component via props (``aProp={this.css.something}``)
 - isn't smart about actual references to the CSS object
 - the javascript code inside the CSS block isn't interpreted, so only Strings should be used as values
