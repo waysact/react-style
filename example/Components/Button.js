@@ -4,11 +4,11 @@
 'use strict';
 
 var React = require('react');
+var vars  = require('./vars');
 
 var Button = React.createClass({
 
   css: function(){
-    var vars = require('./vars');
     return {
       normal: {
         backgroundColor: vars.orange
