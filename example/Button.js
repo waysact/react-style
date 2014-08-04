@@ -3,23 +3,24 @@
  */
 'use strict';
 
-var React = require('react/addons');
-var classSet = React.addons.classSet;
-var vars  = require('./vars');
+var React           = require('react/addons');
+var classSet        = React.addons.classSet;
+var vars            = require('./vars');
+var IntegratedStyle = require('../');
 
 var Button = React.createClass({
 
-  normalStyle: function() {
+  normalStyle: IntegratedStyle(function() {
     return {
       backgroundColor: vars.orange
     }
-  },
+  }),
 
-  hoverStyle: function() {
+  hoverStyle: IntegratedStyle(function() {
     return {
       backgroundColor: 'blue'
     }
-  },
+  }),
 
   getInitialState: function() {
     return {
@@ -28,11 +29,8 @@ var Button = React.createClass({
   },
 
   render: function() {
-    var className = classSet(
-      this.normalStyle(),
-      this.state.hover ? this.hoverStyle() : null
-    );
-    return <div className={className} />;
+    var style = [this.normalStyle(), this.state.hover && this.hoverStyle()];
+    return <div style={style} />;
   }
 
 });

@@ -1,25 +1,25 @@
 /**
  * @jsx React.DOM
  */
-define(['react'], function(React) {
+define(['react', 'integratedstyle'], function(React, IntegratedStyle) {
 
   var Tab = React.createClass({
 
-    redStyle: function() {
+    redStyle: IntegratedStyle(function() {
       return {
         color: this.state.red
       };
-    },
+    }),
 
-    blueStyle: function() {
+    blueStyle: IntegratedStyle(function() {
       return {
         color: 'blue'
       };
-    },
+    }),
 
     render: function() {
-      var className = true ? this.blueStyle() : this.redStyle();
-      return <div className={className} />;
+      var style = true ? this.blueStyle() : this.redStyle();
+      return <div style={style} />;
     }
 
   });
