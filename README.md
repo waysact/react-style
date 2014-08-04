@@ -1,16 +1,20 @@
 IntegratedCSS
-===
-After integrating HTML into JavaScript by [React.js](http://github.com/facebook/react), a logical next step is to do the same for CSS.
+=============
 
-Build with help of the awesome [recast](http://github.com/benjamn/recast) library.
+After integrating HTML into JavaScript by [React.js][], a logical next step is
+to do the same for CSS.
+
+Build with help of the awesome [recast][] library.
 
 Example
----
+-------
+
 ```
+var vars = require('./vars'); // vars.js would export a black variable
+
 var Button = React.createClass({
 
   css: function() {
-    var vars = require('./vars'); // vars.js would export a black variable
     return {
       state1: {
         backgroundColor: vars.black
@@ -78,7 +82,8 @@ Why?
 CSS is problematic to maintain and components give all the borders you actually need.
 
 What does it actually do?
----
+-------------------------
+
 - It takes out the ``css`` function and transform it into plain CSS
 - The ``css`` function is executed on its own, it has no reference to 'this'
 - connect the (something.)css().something blocks to CSS
@@ -88,8 +93,9 @@ What does it actually do?
 
 Usage
 ---
+
 ```
-node TransformerCLI.js --input=example/**/*.js --output=build/ --css=build/styling/lala.css
+integrated-css --input=example/**/*.js --output=build/ --css=build/styling/lala.css
 ```
 
 Other options
@@ -104,5 +110,9 @@ Also there is (from the React.js team):
 - [Inline Style Extension](https://github.com/reactjs/react-future/blob/master/04 - Layout/Inline Style Extension.md)
 
 LICENSE
----
+-------
+
 MIT
+
+[React.js]: http://github.com/facebook/react
+[recast]: http://github.com/benjamn/recast
