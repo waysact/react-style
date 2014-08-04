@@ -3,7 +3,8 @@
  */
 'use strict';
 
-var React = require('react');
+var React = require('react/addons');
+var classSet = React.addons.classSet;
 var vars  = require('./vars');
 
 var Button = React.createClass({
@@ -32,13 +33,11 @@ var Button = React.createClass({
   },
 
   render: function() {
-    var css = this.css;
-    var className = css().normal;
-    if (this.state.hover) {
-      className += css().hover;
-    }
-
-    return <div className={className + css().normal + this.css().another} />;
+    var className = classSet(
+      this.css().normal,
+      this.state.hover ? this.css().hover : null
+    );
+    return <div className={className} />;
   }
 
 });
