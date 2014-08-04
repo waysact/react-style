@@ -1,12 +1,18 @@
 {
   "name": "integratedcss",
   "version": "0.0.6-alpha",
-  "description": "Integrate CSS into your React.js component",
+  "description": "Integrate CSS into your React.js components",
   "homepage": "https://github.com/SanderSpies/IntegratedCSS",
   "author": {
     "name": "Sander Spies",
     "email": "sandermail@gmail.com"
   },
+  "keywords": [
+    "css",
+    "preprocessor",
+    "react",
+    "style"
+  ],
   "bin": {
     "integrate-css": "TransformerCLI.js"
   },
