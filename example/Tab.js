@@ -5,23 +5,21 @@ define(['react'], function(React) {
 
   var Tab = React.createClass({
 
-    css: function() {
+    redStyle: function() {
       return {
-        normal: {
-          margin: '20px'
-        },
-        red: {
-          color: 'red'
-        },
-        blue: {
-          color: 'blue'
-        }
+        color: this.state.red
+      };
+    },
+
+    blueStyle: function() {
+      return {
+        color: 'blue'
       };
     },
 
     render: function() {
-      var test = true ? this.css().blue : this.css().red;
-      return <div className={this.css().normal + test} />;
+      var className = true ? this.blueStyle() : this.redStyle();
+      return <div className={className} />;
     }
 
   });

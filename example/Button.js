@@ -9,21 +9,16 @@ var vars  = require('./vars');
 
 var Button = React.createClass({
 
-  css: function(){
+  normalStyle: function() {
     return {
-      normal: {
-        backgroundColor: vars.orange
-      },
-      hover: {
-        backgroundColor: 'blue'
-      },
-      another: {
-        fontWeight: 'bold'
-      },
-      'another:hover': {
-        fontStyle: 'italic'
-      }
-    };
+      backgroundColor: vars.orange
+    }
+  },
+
+  hoverStyle: function() {
+    return {
+      backgroundColor: 'blue'
+    }
   },
 
   getInitialState: function() {
@@ -34,8 +29,8 @@ var Button = React.createClass({
 
   render: function() {
     var className = classSet(
-      this.css().normal,
-      this.state.hover ? this.css().hover : null
+      this.normalStyle(),
+      this.state.hover ? this.hoverStyle() : null
     );
     return <div className={className} />;
   }
