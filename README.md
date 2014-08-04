@@ -10,16 +10,17 @@ Example
 -------
 
 ```
-var vars = require('./vars'); // vars.js would export a black variable
+var vars = require('./vars');
+var mixins = require('./mixins');
 
 var Button = React.createClass({
 
   css: function() {
     return {
-      state1: {
+      normal: Object.assign({
         backgroundColor: vars.black
-      },
-      state2: {
+      }, mixins.transparent),
+      hovered: {
         backgroundColor: 'white'
       }
     }
@@ -32,7 +33,7 @@ var Button = React.createClass({
   },
 
   render: function() {
-    var css = this.state.hover ? this.css().state2 : this.css().state1;
+    var css = this.state.hover ? this.css().hovered : this.css().normal;
     return <div className={css}>Example</div>;
   },
 
