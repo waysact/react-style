@@ -35,7 +35,7 @@ glob(input, {}, function(err, fileNames) {
       contents: fileContents
     });
   }
-  var transformation = Transformer.transformFiles(inputFiles);
+  var transformation = Transformer.transformMany(inputFiles);
 
   createFolders(cssOutput);
 
