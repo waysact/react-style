@@ -10,84 +10,107 @@ Example
 -------
 
 ```
-var IntegratedStyle = require('IntegratedStyle');
-var vars = require('./vars');
-var mixins = require('./mixins');
+var React           = require('react/addons')
+var IntegratedStyle = require('integratedstyle')
+var vars            = require('./vars')
 
 var Button = React.createClass({
 
-  normal: IntegratedStyle(function() {
-    return Object.assign({
-      backgroundColor: vars.black
-    }, mixins.transparent);
+  normalStyle: IntegratedStyle(function() {
+    return {
+      backgroundColor: vars.orange
+    }
   }),
 
-  hover: IntegratedStyle(function() {
-    return {
-      backgroundColor: 'white'
-    };
+  activeStyle: IntegratedStyle(function() {
+    if (this.state.active) {
+      return {
+        color: 'yellow',
+        padding: '10px'
+      }
+    }
   }),
 
   getInitialState: function() {
     return {
-      hover: false
-    };
+      active: false
+    }
   },
 
   render: function() {
-    var style = this.state.hover ? this.normalStyle() : this.hoverStyle();
-    return <div style={style}>Example</div>;
+    var styles = [
+      this.normalStyle(),
+      this.activeStyle()
+    ]
+    return (
+      <div styles={styles} onClick={this.onClick}>
+        Hello, I'm styled
+      </div>
+    )
   },
 
-  onMouseOver: function() {
-    this.setState({hover: true});
+  onClick: function() {
+    this.setState({active: !this.state.active})
   }
 
-});
+})
 ```
 
-Turns into:
+Turns into the following CSS:
 
 ```
-css
----
 .a {
-  background-color: 'black';
-  opacity: 0.1;
+  background-color: 'orange';
 }
-.b  {
-  background-color: 'white';
-}
+```
 
-js
---
+while the JavaScript code itself gets transformed into:
+```
+var React           = require('react/addons')
+var IntegratedStyle = require('integratedstyle')
+var vars            = require('./vars')
+
 var Button = React.createClass({
 
-  normal: function() {
-    return "a";
+  normalStyle: function() {
+    return " a"
   },
 
-  hover: function() {
-    return "b";
-  },
+  activeStyle: IntegratedStyle(function() {
+    if (this.state.active) {
+      return {
+        color: 'yellow',
+        padding: '10px'
+      }
+    }
+  }),
 
   getInitialState: function() {
     return {
-      hover: false
-    };
+      active: false
+    }
   },
 
   render: function() {
-    var style = this.state.hover ? this.normalStyle() : this.hoverStyle();
-    return <div style={style}>Example</div>;
+    var styles = [
+      this.normalStyle(),
+      this.activeStyle()
+    ]
+    return (
+      <div styles={styles} onClick={this.onClick}>
+        Hello, I'm styled
+      </div>
+    )
   },
 
-  onMouseOver: function() {
-    this.setState({hover: true});
+  onClick: function() {
+    this.setState({active: !this.state.active})
   }
 
-});
+})
 ```
+
+Note how `normalStyle` style declaration is extracted into CSS class.
 
 Motivation
 ----------
@@ -98,21 +121,29 @@ need.
 What does it actually do?
 -------------------------
 
-- It takes out the ``css`` function and transform it into plain CSS
-- The ``css`` function is executed on its own, it has no reference to 'this'
-- connect the (something.)css().something blocks to CSS
-- create CSS with annoyingly small CSS className selectors (3 characters max -
-  up to 140608 classes)
-- CSS is coupled to the component and can be passed to another component via
-  props (``aProp={this.css().something}``)
-- isn't smart about actual references to the CSS function
+At runtime:
+
+1. It adds style declaration to React components. Style declarations are regular
+   methods which are decorated with `IntegratedStyle` decorator and return
+   regular style rules.
+2. It adds `styles` prop to all React.DOM components which allows to add styles
+   to a component from a style declaration.
+
+At code transformation:
+
+1. It finds all component methods wrapped into `IntegratedStyle()` decorator.
+2. It checks if such methods have references to `this`.
+
+  2.1. If method has no reference to `this` it is executed and result is used to
+       generated CSS class with a corresponding ruleset.
+
+  2.2. If method has reference to `this` it is left as is, as it will be used to
+       generate inline styles.
 
 Usage
 -----
 
-```
-integrated-css --input=example/**/*.js --output=build/ --css=build/styling/lala.css
-```
+TODO describe how to integrate IntegratedStyle with [webpack][].
 
 Other options
 -------------
@@ -125,6 +156,7 @@ Biggest difference here is that IntegratedStyle is a CSS + JS preprocessor
 solution instead of a runtime solution.
 
 Also there is (from the React.js team):
+
 - [Inline Style Extension](https://github.com/reactjs/react-future/blob/master/04 - Layout/Inline Style Extension.md)
 
 LICENSE
@@ -134,3 +166,4 @@ MIT
 
 [React.js]: http://github.com/facebook/react
 [recast]: http://github.com/benjamn/recast
+[webpack]: https://webpack.github.io

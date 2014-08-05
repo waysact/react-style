@@ -18,8 +18,8 @@ define(['react', 'integratedstyle'], function(React, IntegratedStyle) {
     }),
 
     render: function() {
-      var style = true ? this.blueStyle() : this.redStyle();
-      return <div style={style} />;
+      var styles = true ? this.blueStyle() : this.redStyle();
+      return <div styles={style} />;
     }
 
   });
