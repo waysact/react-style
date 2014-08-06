@@ -1,5 +1,5 @@
 .idea/*
 node_modules/*
 *.iml
-build/*
+example/build/
 npm-debug.log

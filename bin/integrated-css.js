@@ -6,7 +6,7 @@ var path = require('path');
 var argv = require('yargs').argv;
 var glob = require('glob');
 
-var Transformer = require('./src/core/Transformer');
+var Transformer = require('../lib/Transformer');
 
 var input = argv.input;
 var output = argv.output;
@@ -35,7 +35,7 @@ glob(input, {}, function(err, fileNames) {
       contents: fileContents
     });
   }
-  var transformation = Transformer.transformFiles(inputFiles);
+  var transformation = Transformer.transformMany(inputFiles);
 
   createFolders(cssOutput);
 
