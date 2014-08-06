@@ -1,6 +1,6 @@
 {
   "name": "integratedstyle",
-  "version": "0.0.7-alpha",
+  "version": "0.0.8-alpha",
   "description": "Integrate CSS into your React.js components",
   "homepage": "https://github.com/SanderSpies/IntegratedStyle",
   "author": {
@@ -17,7 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "css-builder": "~0.0.7",
-    "esprima-fb": "4001.3001.0-dev-harmony-fb",
+    "esprima-i": "4001.3001.0-dev-harmony-fb",
     "free-variables": "^0.1.0",
     "recast": "~0.6.9"
   },
