@@ -1,5 +1,5 @@
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var istyle = require.resolve('integratedstyle/lib/webpack');
+var istyle = require.resolve('react-style/lib/webpack');
 var jsxloader = require.resolve('jsx-loader');
 
 module.exports = {
