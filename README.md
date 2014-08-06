@@ -111,7 +111,7 @@ var Button = React.createClass({
 })
 ```
 
-Note how `normalStyle` style declaration is extracted into CSS class.
+Note how the `normalStyle` style declaration is extracted into a CSS class.
 
 Motivation
 ----------
