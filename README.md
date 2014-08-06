@@ -1,5 +1,6 @@
 IntegratedStyle
 ===============
+[![Code Climate](https://codeclimate.com/github/SanderSpies/IntegratedStyle/badges/gpa.svg)](https://codeclimate.com/github/SanderSpies/IntegratedStyle)
 
 After integrating HTML into JavaScript by [React.js][], a logical next step is
 to do the same for CSS.
