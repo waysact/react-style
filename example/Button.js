@@ -3,19 +3,19 @@
  */
 'use strict';
 
-var React           = require('react/addons');
-var IntegratedStyle = require('react-style');
-var vars            = require('./vars');
+var React      = require('react/addons');
+var ReactStyle = require('react-style');
+var vars       = require('./vars');
 
 var Button = React.createClass({
 
-  normalStyle: IntegratedStyle(function() {
+  normalStyle: ReactStyle(function() {
     return {
       backgroundColor: vars.orange
     }
   }),
 
-  activeStyle: IntegratedStyle(function() {
+  activeStyle: ReactStyle(function() {
     if (this.state.active) {
       return {
         color: 'yellow',

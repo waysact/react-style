@@ -1,6 +1,4 @@
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
-var istyle = require.resolve('integratedstyle/lib/webpack');
-var jsxloader = require.resolve('jsx-loader');
 
 module.exports = {
 	entry: "./index.js",
@@ -11,7 +9,7 @@ module.exports = {
 	},
 	module: {
 		loaders: [
-      { test: /\.js$/, loaders: [istyle, jsxloader] },
+      { test: /\.js$/, loaders: ['react-style/lib/webpack', 'jsx-loader'] },
 			{ test: /\.css$/, loader: ExtractTextPlugin.extract("style-loader", "css-loader")},
 			{ test: /\.png$/, loader: "file-loader" }
 		]
