@@ -4,9 +4,8 @@
 'use strict';
 
 var React           = require('react/addons');
-var classSet        = React.addons.classSet;
+var IntegratedStyle = require('integratedstyle');
 var vars            = require('./vars');
-var IntegratedStyle = require('../');
 
 var Button = React.createClass({
 
@@ -16,21 +15,35 @@ var Button = React.createClass({
     }
   }),
 
-  hoverStyle: IntegratedStyle(function() {
-    return {
-      backgroundColor: 'blue'
+  activeStyle: IntegratedStyle(function() {
+    if (this.state.active) {
+      return {
+        color: 'yellow',
+        padding: '10px'
+      }
     }
   }),
 
   getInitialState: function() {
     return {
-      hover: false
+      active: false
     };
   },
 
   render: function() {
-    var style = [this.normalStyle(), this.state.hover && this.hoverStyle()];
-    return <div style={style} />;
+    var styles = [
+      this.normalStyle(),
+      this.activeStyle()
+    ];
+    return (
+      <div styles={styles} onClick={this.onClick}>
+        Hello, I'm styled
+      </div>
+    );
+  },
+
+  onClick: function() {
+    this.setState({active: !this.state.active});
   }
 
 });
