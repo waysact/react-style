@@ -14,7 +14,8 @@
     "file-loader": "^0.6.1",
     "jsx-loader": "^0.11.0",
     "style-loader": "^0.6.4",
-    "webpack": "^1.3.3-beta1"
+    "webpack": "^1.3.3-beta1",
+    "integratedstyle": "0.0.7-alpha"
   },
   "dependencies": {
     "react": "^0.11.1"

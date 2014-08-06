@@ -1,8 +1,8 @@
 {
-  "name": "integratedcss",
-  "version": "0.0.6-alpha",
+  "name": "integratedstyle",
+  "version": "0.0.7-alpha",
   "description": "Integrate CSS into your React.js components",
-  "homepage": "https://github.com/SanderSpies/IntegratedCSS",
+  "homepage": "https://github.com/SanderSpies/IntegratedStyle",
   "author": {
     "name": "Sander Spies",
     "email": "sandermail@gmail.com"
@@ -23,7 +23,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/SanderSpies/IntegratedCSS.git"
+    "url": "https://github.com/SanderSpies/IntegratedStyle.git"
   },
   "devDependencies": {
     "eslint": "^0.7.4"
