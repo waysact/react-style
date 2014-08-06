@@ -1,4 +1,4 @@
-IntegratedStyle
+React-style
 ===============
 [![Code Climate](https://codeclimate.com/github/SanderSpies/IntegratedStyle/badges/gpa.svg)](https://codeclimate.com/github/SanderSpies/IntegratedStyle)
 
@@ -12,7 +12,7 @@ Example
 
 ```
 var React           = require('react/addons')
-var IntegratedStyle = require('integratedstyle')
+var IntegratedStyle = require('react-style')
 var vars            = require('./vars')
 
 var Button = React.createClass({
@@ -68,7 +68,7 @@ Turns into the following CSS:
 while the JavaScript code itself gets transformed into:
 ```
 var React           = require('react/addons')
-var IntegratedStyle = require('integratedstyle')
+var IntegratedStyle = require('react-style')
 var vars            = require('./vars')
 
 var Button = React.createClass({
@@ -144,7 +144,7 @@ At code transformation:
 Usage
 -----
 
-TODO describe how to integrate IntegratedStyle with [webpack][].
+TODO describe how to integrate react-style with [webpack][].
 
 Other options
 -------------
@@ -153,10 +153,7 @@ Other options
 - [ReactStyles](https://github.com/hedgerwang/react-styles)
 - [react-css](https://github.com/elierotenberg/react-css)
 
-Biggest difference here is that IntegratedStyle is a CSS + JS preprocessor
-solution instead of a runtime solution.
-
-Also there is (from the React.js team):
+Also there is this proposal from the React.js team:
 
 - [Inline Style Extension](https://github.com/reactjs/react-future/blob/master/04 - Layout/Inline Style Extension.md)
 

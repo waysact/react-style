@@ -1,7 +1,7 @@
 /**
  * @jsx React.DOM
  */
-define(['react', 'integratedstyle'], function(React, IntegratedStyle) {
+define(['react', 'react-style'], function(React, IntegratedStyle) {
 
   var Tab = React.createClass({
 

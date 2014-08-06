@@ -4,7 +4,7 @@
 'use strict';
 
 var React           = require('react/addons');
-var IntegratedStyle = require('integratedstyle');
+var IntegratedStyle = require('react-style');
 var vars            = require('./vars');
 
 var Button = React.createClass({
