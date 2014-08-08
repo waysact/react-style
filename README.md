@@ -1,6 +1,6 @@
 React-style
 ===============
-[![Code Climate](https://codeclimate.com/github/SanderSpies/ReactStyle/badges/gpa.svg)](https://codeclimate.com/github/SanderSpies/ReactStyle)
+[![Code Climate](https://codeclimate.com/github/SanderSpies/react-style/badges/gpa.svg)](https://codeclimate.com/github/SanderSpies/react-style)
 
 After integrating HTML into JavaScript by [React.js][], a logical next step is
 to do the same for CSS.
