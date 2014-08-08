@@ -19,7 +19,8 @@
     "css-builder": "~0.0.7",
     "esprima-fb": "4001.3001.0-dev-harmony-fb",
     "free-variables": "^0.1.0",
-    "recast": "~0.6.9"
+    "recast": "~0.6.9",
+    "autoprefixer": "^2.2.0"
   },
   "repository": {
     "type": "git",
