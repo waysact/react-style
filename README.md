@@ -141,6 +141,7 @@ At code transformation:
   2.2. If method has reference to `this` it is left as is, as it will be used to
        generate inline styles.
 
+
 Usage
 -----
 
