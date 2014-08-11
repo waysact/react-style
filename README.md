@@ -146,9 +146,9 @@ Usage
 
 TODO describe how to integrate react-style with [webpack][].
 
-Other options
--------------
 
+Alternatives
+-------------
 - [RCSS](https://github.com/chenglou/rcss)
 - [ReactStyles](https://github.com/hedgerwang/react-styles)
 - [react-css](https://github.com/elierotenberg/react-css)
