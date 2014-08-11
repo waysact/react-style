@@ -1,6 +1,6 @@
 React-style
 ===============
-[![Code Climate](https://codeclimate.com/github/SanderSpies/IntegratedStyle/badges/gpa.svg)](https://codeclimate.com/github/SanderSpies/IntegratedStyle)
+[![Code Climate](https://codeclimate.com/github/SanderSpies/react-style/badges/gpa.svg)](https://codeclimate.com/github/SanderSpies/react-style)
 
 After integrating HTML into JavaScript by [React.js][], a logical next step is
 to do the same for CSS.
@@ -12,18 +12,18 @@ Example
 
 ```
 var React           = require('react/addons')
-var IntegratedStyle = require('react-style')
+var ReactStyle      = require('react-style')
 var vars            = require('./vars')
 
 var Button = React.createClass({
 
-  normalStyle: IntegratedStyle(function() {
+  normalStyle: ReactStyle(function() {
     return {
       backgroundColor: vars.orange
     }
   }),
 
-  activeStyle: IntegratedStyle(function() {
+  activeStyle: ReactStyle(function() {
     if (this.state.active) {
       return {
         color: 'yellow',
@@ -68,7 +68,7 @@ Turns into the following CSS:
 while the JavaScript code itself gets transformed into:
 ```
 var React           = require('react/addons')
-var IntegratedStyle = require('react-style')
+var ReactStyle      = require('react-style')
 var vars            = require('./vars')
 
 var Button = React.createClass({
@@ -77,7 +77,7 @@ var Button = React.createClass({
     return " a"
   },
 
-  activeStyle: IntegratedStyle(function() {
+  activeStyle: ReactStyle(function() {
     if (this.state.active) {
       return {
         color: 'yellow',
@@ -125,14 +125,14 @@ What does it actually do?
 At runtime:
 
 1. It adds style declaration to React components. Style declarations are regular
-   methods which are decorated with `IntegratedStyle` decorator and return
+   methods which are decorated with `ReactStyle` decorator and return
    regular style rules.
 2. It adds `styles` prop to all React.DOM components which allows to add styles
    to a component from a style declaration.
 
 At code transformation:
 
-1. It finds all component methods wrapped into `IntegratedStyle()` decorator.
+1. It finds all component methods wrapped into `ReactStyle()` decorator.
 2. It checks if such methods have references to `this`.
 
   2.1. If method has no reference to `this` it is executed and result is used to
@@ -147,9 +147,9 @@ Usage
 
 TODO describe how to integrate react-style with [webpack][].
 
-Other options
--------------
 
+Alternatives
+-------------
 - [RCSS](https://github.com/chenglou/rcss)
 - [ReactStyles](https://github.com/hedgerwang/react-styles)
 - [react-css](https://github.com/elierotenberg/react-css)
