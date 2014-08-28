@@ -1,6 +1,6 @@
 {
   "name": "react-style",
-  "version": "0.0.11-alpha",
+  "version": "0.0.12-alpha",
   "description": "Integrate CSS into your React.js components",
   "homepage": "https://github.com/SanderSpies/react-style",
   "author": {
