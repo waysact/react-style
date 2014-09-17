@@ -5,54 +5,40 @@
 
 var React       = require('react');
 var ReactStyle  = require('react-style');
-var {
-  none, stop, transparent, inset, pointer, center, nowrap, baseline, normal,
-  inherit, inlineBlock,
-  rgba, rgb, linearGradient,
-  shadows, shadow, border, padding
-} = require('react-style/lib/utils');
 
 var baseStyle = ReactStyle({
-  display: inlineBlock,
+  display: 'inline-block',
   zoom: 1,
-  lineHeight: normal,
-  whiteSpace: nowrap,
-  verticalAlign: baseline,
-  textAlign: center,
-  cursor: pointer,
-  userSelect: none
+  lineHeight: 'normal',
+  whiteSpace: 'nowrap',
+  verticalAlign: 'baseline',
+  textAlign: 'center',
+  cursor: 'pointer',
+  userSelect: 'none'
 });
 
 var activeStyle = ReactStyle({
-  boxShadow: shadow(
-               {blur: '1px', color: rgba(0, 0, 0, 0.15), type: inset},
-               {blur: '6px', color: rgba(0, 0, 0, 0.20), type: inset})
+  boxShadow: '0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset'
 });
 
 var hoverStyle = ReactStyle({
   color: '#000',
-  backgroundImage: linearGradient(
-                     transparent,
-                     stop(rgba(0,0,0, 0.05), '40%'),
-                     rgba(0,0,0, 0.10))
+  backgroundImage: 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))'
 });
 
 var focusStyle = ReactStyle({
-  backgroundImage: linearGradient(
-                     transparent,
-                     stop(rgba(0,0,0, 0.05), '40%'),
-                     rgba(0,0,0, 0.10)),
-  outline: none
+  backgroundImage: 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))',
+  outline: 'none'
 });
 
 var style = ReactStyle({
-  fontFamily: inherit,
+  fontFamily: 'inherit',
   fontSize: '100%',
-  padding: padding('0.5em', '1em'),
-  color: rgba(0, 0, 0, 0.70),
-  border: border(none, rgba(0, 0, 0, 0)),
+  padding: '0.5em 1em',
+  color: 'rgba(0, 0, 0, 0.70)',
+  border: 'none rgba(0, 0, 0, 0)',
   backgroundColor: '#E6E6E6',
-  textDecoration: none,
+  textDecoration: 'none',
   borderRadius: '3px',
   onActive: activeStyle,
   onHover: hoverStyle,
@@ -77,18 +63,18 @@ var Button = React.createClass({
   statics: {
     styles: {
       primary: ReactStyle({
-        backgroundColor: rgb(0, 120, 231),
+        backgroundColor: 'rgb(0, 120, 231)',
         color: '#fff'
       }),
 
       success: ReactStyle({
         color: 'white',
-        background: rgb(28, 184, 65)
+        background: 'rgb(28, 184, 65)'
       }),
 
       error: ReactStyle({
         color: 'white',
-        background: rgb(202, 60, 60)
+        background: 'rgb(202, 60, 60)'
       })
     }
   }

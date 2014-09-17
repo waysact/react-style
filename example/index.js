@@ -7,7 +7,6 @@ require('normalize.css/normalize.css');
 
 var React       = require('react');
 var ReactStyle  = require('react-style');
-var {rgb}       = require('react-style/lib/utils');
 var Icon        = require('react-fa');
 var Button      = require('./Button');
 var ButtonGroup = require('./ButtonGroup');
