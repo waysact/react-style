@@ -1,4 +1,4 @@
-var ReactStylePlugin = require('../lib/webpack');
+var ReactStylePlugin = require('react-style-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
