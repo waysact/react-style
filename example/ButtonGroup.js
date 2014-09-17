@@ -8,23 +8,23 @@ var ReactStyle      = require('react-style');
 
 var ButtonGroup = React.createClass({
 
-  style: ReactStyle({
-    display: 'inline-block',
-    children: {
-      margin: 0,
-      borderRadius: 0
-    },
-    firstChild: {
-      margin: 0,
-      borderTopRightRadius: 0,
-      borderBottomRightRadius: 0
-    },
-    lastChild: {
-      margin: 0,
-      borderTopLeftRadius: 0,
-      borderBottomLeftRadius: 0
+  style: ReactStyle`
+    display: inline-block;
+    children {
+      margin: 0;
+      border-radius: 0;
     }
-  }),
+    :first-child {
+      margin: 0;
+      border-top-right-radius: 0;
+      border-bottom-right-radius: 0;
+    },
+    :last-child {
+      margin: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  `,
 
   render() {
     var styles = [this.style, this.props.styles];
