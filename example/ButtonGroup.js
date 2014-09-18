@@ -10,20 +10,6 @@ var ButtonGroup = React.createClass({
 
   style: ReactStyle`
     display: inline-block;
-    children {
-      margin: 0;
-      border-radius: 0;
-    }
-    :first-child {
-      margin: 0;
-      border-top-right-radius: 0;
-      border-bottom-right-radius: 0;
-    },
-    :last-child {
-      margin: 0;
-      border-top-left-radius: 0;
-      border-bottom-left-radius: 0;
-    }
   `,
 
   render() {

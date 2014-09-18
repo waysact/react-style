@@ -42,12 +42,7 @@ var Application = React.createClass({
     background-color: white;
     font-size: 10pt;
     padding: 1em;
-    children {
-      margin-right: 0.5em;
-    }
-    :last-child {
-      margin-right: 0;
-    }
+
   `,
 
   render() {

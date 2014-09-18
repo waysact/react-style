@@ -25,17 +25,6 @@ var style = ReactStyle`
     background-color: #E6E6E6;
     text-decoration: none;
     border-radius: 3px;
-    :active {
-      box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset;
-    }
-    :hover {
-      color: '#000';
-      background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
-    }
-    :focus {
-      background-image: linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10));
-      outline: none;
-    }
   `;
 
 var Button = React.createClass({
