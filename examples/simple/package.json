@@ -1,5 +1,5 @@
 {
-  "name": "react-style-example",
+  "name": "react-style-simple-example",
   "version": "1.0.0",
   "description": "Example app which demonstrates React Style",
   "main": "index.js",
@@ -12,8 +12,9 @@
     "css-loader": "^0.8.0",
     "jsx-loader": "^0.11.0",
     "normalize.css": "^3.0.1",
-    "url-loader": "^0.5.5",
-    "react-style-webpack-plugin": "git+https://github.com/js-next/react-style-webpack-plugin.git"
+    "react-style-webpack-plugin": "git+https://github.com/js-next/react-style-webpack-plugin.git",
+    "style-loader": "^0.8.0",
+    "url-loader": "^0.5.5"
   },
   "dependencies": {
     "react-fa": "^1.1.0"

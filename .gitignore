@@ -1,2 +1,2 @@
-example/build
+examples/*/build
 node_modules/

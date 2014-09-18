@@ -79,6 +79,7 @@ var Application = React.createClass({
 });
 
 if (typeof window !== 'undefined') {
+  ReactStyle.inject();
   React.renderComponent(<Application />, document.getElementById('app'));
 }
 
