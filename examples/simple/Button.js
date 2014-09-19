@@ -6,7 +6,11 @@
 var React       = require('react');
 var ReactStyle  = require('react-style');
 
+var purple = 'purple !important';
+
+// example of CSS names style
 var baseStyle = ReactStyle`
+    background-color: ${purple};
     display: inline-block;
     zoom: 1;
     line-height: normal;
@@ -16,16 +20,19 @@ var baseStyle = ReactStyle`
     user-select: none;
   `;
 
-var style = ReactStyle`
-    font-family: inherit;
-    font-size: 100%;
-    padding: 0.5em 1em;
-    color: rgba(0, 0, 0, 0.70);
-    border: none rgba(0, 0, 0, 0);
-    background-color: #E6E6E6;
-    text-decoration: none;
-    border-radius: 3px;
-  `;
+var gray = '#E6E6E6';
+
+// example of DOM names style
+var style = ReactStyle({
+  fontFamily: 'inherit',
+  fontSize: '100%',
+  padding: '0.5em 1em',
+  color: 'rgba(0, 0, 0, 0.70)',
+  border: 'none rgba(0, 0, 0, 0)',
+  backgroundColor: gray,
+  textDecoration: 'none',
+  borderRadius: 3
+});
 
 var Button = React.createClass({
 
