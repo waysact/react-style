@@ -1,6 +1,6 @@
 {
   "name": "react-style",
-  "version": "1.0.0",
+  "version": "0.2.0",
   "description": "",
   "main": "index.js",
   "license": "MIT",
@@ -16,6 +16,7 @@
     "webpack": "^1.4.0-beta8"
   },
   "dependencies": {
+    "css": "^2.1.0",
     "recast": "^0.7.2"
   }
 }

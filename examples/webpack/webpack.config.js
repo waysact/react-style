@@ -6,7 +6,7 @@ module.exports = {
   devtool: 'eval',
   output: {
     filename: "bundle.js",
-    path: __dirname + "/build",
+    path: __dirname + "/build"
   },
   resolve: {
     alias: {

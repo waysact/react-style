@@ -6,16 +6,17 @@
 var React       = require('react');
 var ReactStyle  = require('react-style');
 
-var baseStyle = ReactStyle({
-  display: 'inline-block',
-  zoom: 1,
-  lineHeight: 'normal',
-  whiteSpace: 'nowrap',
-  verticalAlign: 'baseline',
-  textAlign: 'center',
-  cursor: 'pointer',
-  userSelect: 'none'
-});
+// example of CSS names style
+var baseStyle = ReactStyle`
+    background-color: purple;
+    display: inline-block;
+    zoom: 1;
+    line-height: normal;
+    white-space: nowrap;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+  `;
 
 var activeStyle = ReactStyle({
   boxShadow: '0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset'
