@@ -1,0 +1,22 @@
+{
+  "name": "react-style-simple-example",
+  "version": "1.0.0",
+  "description": "Example app which demonstrates React Style",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "css-loader": "^0.8.0",
+    "jsx-loader": "^0.11.0",
+    "normalize.css": "^3.0.1",
+    "react-style-syntax": "git+https://github.com/js-next/react-style-syntax.git",
+    "style-loader": "^0.8.0",
+    "url-loader": "^0.5.5"
+  },
+  "dependencies": {
+    "react-fa": "^1.1.0"
+  }
+}
