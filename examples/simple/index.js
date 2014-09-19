@@ -38,17 +38,22 @@ var TextAlignSwitcher = React.createClass({
 
 var Application = React.createClass({
 
-  style: ReactStyle`
-    background-color: white;
-    font-size: 10pt;
-    padding: 1em;
-
-  `,
+  style: ReactStyle({
+    backgroundColor: 'white',
+    fontSize: '10pt',
+    padding: '1em',
+    children: {
+      marginRight: '0.5em',
+    },
+    lastChild: {
+      marginRight: 0
+    }
+  }),
 
   render() {
     return ReactStyle.style(this.style,
       <div>
-        <h1 styles={ReactStyle({textAlign: this.state.textAlign})}>Application</h1>
+        <h1 styles={ReactStyle({textAlign: this.state.textAlign})}>Applicaiton</h1>
         <Button styles={Button.styles.success}>
           <Icon name="cog" /> OK
         </Button>
