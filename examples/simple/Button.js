@@ -6,11 +6,9 @@
 var React       = require('react');
 var ReactStyle  = require('react-style');
 
-var purple = 'purple !important';
-
 // example of CSS names style
 var baseStyle = ReactStyle`
-    background-color: ${purple};
+    background-color: purple;
     display: inline-block;
     zoom: 1;
     line-height: normal;
