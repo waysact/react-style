@@ -5,7 +5,6 @@
   "main": "index.js",
   "license": "MIT",
   "peerDependencies": {
-    "extract-text-webpack-plugin": "^0.3.1",
     "react": "^0.11.1"
   },
   "devDependencies": {
@@ -13,7 +12,7 @@
     "jshint": "^2.5.5",
     "jsx-loader": "^0.11.0",
     "react": "^0.11.1",
-    "webpack": "^1.4.0-beta8"
+    "webpack": "^1.4.1-beta1"
   },
   "dependencies": {
     "recast": "^0.7.2"
