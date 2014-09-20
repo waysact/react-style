@@ -13,8 +13,5 @@
     "jsx-loader": "^0.11.0",
     "react": "^0.11.1",
     "webpack": "^1.4.1-beta1"
-  },
-  "dependencies": {
-    "recast": "^0.7.2"
   }
 }
