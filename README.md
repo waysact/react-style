@@ -1,6 +1,7 @@
 # React Style
 
 [![Build Status](https://travis-ci.org/js-next/react-style.svg?branch=master)](https://travis-ci.org/js-next/react-style)
+[![Code Climate](https://codeclimate.com/github/js-next/react-style/badges/gpa.svg)](https://codeclimate.com/github/js-next/react-style)
 
 React Style is an approach for styling [React][] components.
 
