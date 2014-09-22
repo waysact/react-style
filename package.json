@@ -1,7 +1,7 @@
 {
   "name": "react-style",
-  "version": "1.0.0",
-  "description": "",
+  "version": "0.2.0",
+  "description": "Integrate CSS into React.js components",
   "main": "lib/index.js",
   "license": "MIT",
   "peerDependencies": {
