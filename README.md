@@ -37,14 +37,13 @@ is defined inside `render()` method) will be applied to DOM as inline styles.
 
 ## Extracting styles into CSS at build time
 
-There's a [React Style Webpack plugin][] which extends [Webpack][] with the
+There's [React Style Webpack plugin][] which extends [Webpack][] with the
 ability to extract styles from your application at build time. The result is a
 `bundle.css` file which can be added to `<head>`.
 
 ## Syntax helpers for writing styles
 
-There's a [React Style syntax][] which provides  syntax helpers which allows to
-write styles like this:
+There's [React Style syntax][] which allows you to write styles like this:
 
     var styles = ReactStyle`
       color: red;
@@ -58,12 +57,15 @@ And have it transformed into:
       backgroundColor: 'white'
     })
 
-Such syntax extension is consistent with [ES6 tagged template
-literal][es6-templ] syntax.
+This syntax is consistent with [ES6 tagged template literal][es6-templ]
 
-The syntax helpers is provided is just for convenience when transition a big CSS
-code base to React Style. It makes it possible just to copy paste styles from
-your CSS and later refactor them into more modular form.
+The syntax helpers are convenient when transitioning a large CSS
+code base to React Style. It makes it possible to directly copy paste styles 
+from your CSS and later refactor them into a more modular form.
+
+License
+---
+MIT
 
 [Webpack]: https://webpack.github.io
 [React]: https://facebook.github.io/react/
