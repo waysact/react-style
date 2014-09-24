@@ -44,9 +44,9 @@ var style = ReactStyle`
   border-radius: 3px;
 `;
 
-style.children.onActive = activeStyle;
-style.children.onHover = hoverStyle;
-style.children.onFocus = focusStyle;
+style.children[':active'] = activeStyle;
+style.children[':hover'] = hoverStyle;
+style.children[':focus'] = focusStyle;
 
 var Button = React.createClass({
 

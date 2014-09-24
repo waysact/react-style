@@ -40,9 +40,9 @@ var style = ReactStyle({
   backgroundColor: '#E6E6E6',
   textDecoration: 'none',
   borderRadius: '3px',
-  onActive: activeStyle,
-  onHover: hoverStyle,
-  onFocus: focusStyle
+  ':active': activeStyle,
+  ':hover': hoverStyle,
+  ':focus': focusStyle
 });
 
 var Button = React.createClass({
