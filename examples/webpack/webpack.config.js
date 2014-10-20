@@ -1,12 +1,14 @@
+'use strict';
+
 var ReactStylePlugin = require('react-style-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
+  devtool: 'sourcemap',
   entry: './index.js',
-  devtool: 'eval',
   output: {
     filename: "bundle.js",
-    path: __dirname + "/build",
+    path: __dirname + "/build"
   },
   resolve: {
     alias: {
@@ -19,7 +21,7 @@ module.exports = {
         test: /\.js$/,
         loaders: [
           ReactStylePlugin.loader(),
-          'jsx-loader?harmony'
+          'jsx-loader?harmony&sourceMap'
         ]
       },
       {
@@ -33,6 +35,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new ReactStylePlugin('bundle.css')
+    new ReactStylePlugin('bundle.css', {allChunks: true})
   ]
 };
