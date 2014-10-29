@@ -8,7 +8,7 @@ var ReactStyle  = require('react-style');
 
 var baseStyle = ReactStyle({
   display: 'inline-block',
-  zoom: 1,
+  zoom: 2,
   lineHeight: 'normal',
   whiteSpace: 'nowrap',
   verticalAlign: 'baseline',

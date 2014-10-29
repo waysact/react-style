@@ -7,7 +7,7 @@ var React       = require('react');
 var ReactStyle  = require('react-style');
 
 var baseStyle = ReactStyle({
-  display: 'inline-block',
+  display: 'block',
   zoom: 1,
   lineHeight: 'normal',
   whiteSpace: 'nowrap',
