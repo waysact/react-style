@@ -7,7 +7,7 @@ var React       = require('react');
 var ReactStyle  = require('react-style');
 
 var baseStyle = ReactStyle({
-  display: 'block',
+  display: 'inline-block',
   zoom: 1,
   lineHeight: 'normal',
   whiteSpace: 'nowrap',
@@ -48,14 +48,15 @@ var style = ReactStyle({
 var Button = React.createClass({
 
   render() {
-    var styles = [
+    var props = this.props;
+	  var styles = [
       baseStyle,
       style,
       this.props.active && activeStyle
     ].concat(this.props.styles);
-    return this.transferPropsTo(
-      <button styles={styles}>
-        {this.props.children}
+		props.styles = styles;
+    return (<button {...props}>
+        {props.children}
       </button>
     );
   },

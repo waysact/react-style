@@ -7,7 +7,6 @@ require('normalize.css/normalize.css');
 
 var React       = require('react');
 var ReactStyle  = require('react-style');
-var Icon        = require('react-fa');
 var Button      = require('./Button');
 var ButtonGroup = require('./ButtonGroup');
 
@@ -19,17 +18,17 @@ var TextAlignSwitcher = React.createClass({
         <Button
           active={this.props.textAlign === 'left'}
           onClick={this.props.onTextAlign.bind(null, 'left')}>
-          <Icon name="align-left" /> Left
+          Left
         </Button>
         <Button
           active={this.props.textAlign === 'center'}
           onClick={this.props.onTextAlign.bind(null, 'center')}>
-          <Icon name="align-center" /> Center
+          Center
         </Button>
         <Button
           active={this.props.textAlign === 'right'}
           onClick={this.props.onTextAlign.bind(null, 'right')}>
-          <Icon name="align-right" /> Right
+          Right
         </Button>
       </ButtonGroup>
     );
@@ -43,7 +42,7 @@ var Application = React.createClass({
     fontSize: '10pt',
     padding: '1em',
     children: {
-      marginRight: '0.5em',
+      marginRight: '0.5em'
     },
     lastChild: {
       marginRight: 0
@@ -51,14 +50,14 @@ var Application = React.createClass({
   }),
 
   render() {
-    return ReactStyle.style(this.style,
-      <div>
+    return (
+      <div styles={this.style}>
         <h1 styles={ReactStyle({textAlign: this.state.textAlign})}>Application</h1>
         <Button styles={Button.styles.success}>
-          <Icon name="cog" /> OK
+          OK
         </Button>
         <Button styles={Button.styles.error}>
-          <Icon name="remove" /> Cancel
+          Cancel
         </Button>
         <TextAlignSwitcher
           textAlign={this.state.textAlign}
@@ -80,7 +79,7 @@ var Application = React.createClass({
 
 if (typeof window !== 'undefined') {
   ReactStyle.inject();
-  React.renderComponent(<Application />, document.getElementById('app'));
+  React.render(<Application />, document.getElementById('app'));
 }
 
 module.exports = Application;
