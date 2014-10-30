@@ -7,6 +7,7 @@ require('normalize.css/normalize.css');
 
 var React       = require('react');
 var ReactStyle  = require('react-style');
+var Icon        = require('react-fa');
 var Button      = require('./Button');
 var ButtonGroup = require('./ButtonGroup');
 
@@ -18,17 +19,17 @@ var TextAlignSwitcher = React.createClass({
         <Button
           active={this.props.textAlign === 'left'}
           onClick={this.props.onTextAlign.bind(null, 'left')}>
-          Left
+          <Icon name="align-left" /> Left
         </Button>
         <Button
           active={this.props.textAlign === 'center'}
           onClick={this.props.onTextAlign.bind(null, 'center')}>
-          Center
+          <Icon name="align-center" /> Center
         </Button>
         <Button
           active={this.props.textAlign === 'right'}
           onClick={this.props.onTextAlign.bind(null, 'right')}>
-          Right
+          <Icon name="align-right" /> Right
         </Button>
       </ButtonGroup>
     );
@@ -54,10 +55,10 @@ var Application = React.createClass({
       <div styles={this.style}>
         <h1 styles={ReactStyle({textAlign: this.state.textAlign})}>Application</h1>
         <Button styles={Button.styles.success}>
-          OK
+          <Icon name="cog" /> OK
         </Button>
         <Button styles={Button.styles.error}>
-          Cancel
+          <Icon name="remove" /> Cancel
         </Button>
         <TextAlignSwitcher
           textAlign={this.state.textAlign}
