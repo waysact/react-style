@@ -4,7 +4,7 @@ var ReactStylePlugin = require('react-style-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
-  devtool: 'sourcemap',
+  //devtool: 'sourcemap',
   entry: './index.js',
   output: {
     filename: "bundle.js",
@@ -12,6 +12,7 @@ module.exports = {
   },
   resolve: {
     alias: {
+      'react$': require.resolve('../../node_modules/react'),
       'react-style$': require.resolve('../../lib/index')
     }
   },
@@ -35,6 +36,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new ReactStylePlugin('bundle.css', {allChunks: true})
+    new ReactStylePlugin('bundle.css')
   ]
 };

@@ -43,9 +43,9 @@ var Application = React.createClass({
     fontSize: '10pt',
     padding: '1em',
     children: {
-      marginRight: '0.5em',
+      marginRight: '0.5em'
     },
-    lastChild: {
+    ':last-child': {
       marginRight: 0
     }
   }),
@@ -80,7 +80,7 @@ var Application = React.createClass({
 
 if (typeof window !== 'undefined') {
   ReactStyle.inject();
-  React.renderComponent(<Application />, document.getElementById('app'));
+  React.render(<Application />, document.getElementById('app'));
 }
 
 module.exports = Application;

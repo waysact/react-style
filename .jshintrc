@@ -3,5 +3,6 @@
   "node": true,
   "browser": true,
   "newcap": false,
-  "maxlen": 80
+  "maxlen": 80,
+  "esnext": true
 }
