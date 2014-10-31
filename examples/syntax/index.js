@@ -43,9 +43,9 @@ var Application = React.createClass({
     fontSize: '10pt',
     padding: '1em',
     children: {
-      marginRight: '0.5em',
+      marginRight: '0.5em'
     },
-    lastChild: {
+    ':last-child': {
       marginRight: 0
     }
   }),

@@ -27,7 +27,7 @@ var ButtonGroup = React.createClass({
   }),
 
   render() {
-    var styles = [this.style, this.props.styles];
+	  var styles = [this.style, this.props.styles];
     return ReactStyle.style(styles,
       <div>{this.props.children}</div>
     );

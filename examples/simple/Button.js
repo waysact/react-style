@@ -53,7 +53,7 @@ var Button = React.createClass({
       baseStyle,
       style,
       this.props.active && activeStyle
-    ].concat(this.props.styles);
+    ].concat(props.styles);
 		props.styles = styles;
     return (<button {...props}>
         {props.children}

@@ -48,16 +48,18 @@ var style = ReactStyle({
 var Button = React.createClass({
 
   render() {
-    var styles = [
-      baseStyle,
-      style,
-      this.props.active && activeStyle
-    ].concat(this.props.styles);
-    return this.transferPropsTo(
-      <button styles={styles}>
-        {this.props.children}
-      </button>
-    );
+	  var props = this.props;
+	  var styles = [
+		  baseStyle,
+		  style,
+			this.props.active && activeStyle
+	  ].concat(this.props.styles);
+
+	  props.styles = styles;
+
+	  return (<button {...props}>
+	            {props.children}
+	          </button>);
   },
 
   statics: {
