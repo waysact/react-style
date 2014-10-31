@@ -3,8 +3,8 @@
  */
 'use strict';
 
-var React       = require('react');
-var ReactStyle  = require('react-style');
+var React = require('react');
+var ReactStyle = require('react-style');
 
 var baseStyle = ReactStyle({
   display: 'inline-block',
@@ -32,14 +32,14 @@ var ButtonStyle = ReactStyle({
   borderRadius: '3px',
   ':active': activeStyle,
 
-	':hover': ReactStyle({
-	  color: '#000',
-	  backgroundImage: 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))'
+  ':hover': ReactStyle({
+    color: '#000',
+    backgroundImage: 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))'
   }),
 
   ':focus': ReactStyle({
-	  backgroundImage: 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))',
-	  outline: 'none'
+    backgroundImage: 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))',
+    outline: 'none'
   })
 });
 
@@ -47,15 +47,14 @@ class Button {
 
   render() {
     var props = this.props;
-	  var styles = [
+    var styles = [
       baseStyle,
-		  ButtonStyle,
-      this.props.active && activeStyle
+      ButtonStyle,
+        this.props.active && activeStyle
     ].concat(props.styles);
-		props.styles = styles;
-    return (<button {...props}>
-        {props.children}
-      </button>
+    props.styles = styles;
+    return (
+      <button {...props}>{props.children}</button>
     );
   }
 }

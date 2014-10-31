@@ -38,15 +38,15 @@ var TextAlignSwitcher = React.createClass({
 });
 
 var ApplicationStyle = ReactStyle({
-	backgroundColor: 'white',
-	fontSize: '10pt',
-	padding: '1em',
-	children: {
-		marginRight: '0.5em'
-	},
-	lastChild: {
-		marginRight: 0
-	}
+  backgroundColor: 'white',
+  fontSize: '10pt',
+  padding: '1em',
+  children: {
+    marginRight: '0.5em'
+  },
+  lastChild: {
+    marginRight: 0
+  }
 });
 
 class Application {
@@ -81,6 +81,6 @@ class Application {
 
 if (typeof window !== 'undefined') {
   ReactStyle.inject();
-	var ApplicationTag = React.createClass(Application.prototype);
+  var ApplicationTag = React.createClass(Application.prototype);
   React.render(<ApplicationTag />, document.getElementById('app'));
 }
