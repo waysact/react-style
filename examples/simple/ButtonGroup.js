@@ -31,7 +31,6 @@ class ButtonGroup {
     return ReactStyle.style(styles,
       <div> {this.props.children}</div>);
   }
-
 }
 
 module.exports = React.createClass(ButtonGroup.prototype);

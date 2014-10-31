@@ -12,7 +12,7 @@ module.exports = {
   },
   resolve: {
     alias: {
-	    'react$': require.resolve('../../node_modules/react'),
+      'react$': require.resolve('../../node_modules/react'),
       'react-style$': require.resolve('../../lib/index')
     }
   },
