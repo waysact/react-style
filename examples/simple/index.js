@@ -9,6 +9,7 @@ var React       = require('react');
 var ReactStyle  = require('react-style');
 var Icon        = require('react-fa');
 var Button      = require('./Button');
+var ButtonStyles = require('./ButtonStyles');
 var ButtonGroup = require('./ButtonGroup');
 
 var TextAlignSwitcher = React.createClass({
@@ -36,28 +37,28 @@ var TextAlignSwitcher = React.createClass({
   }
 });
 
-var Application = React.createClass({
+var ApplicationStyle = ReactStyle({
+	backgroundColor: 'white',
+	fontSize: '10pt',
+	padding: '1em',
+	children: {
+		marginRight: '0.5em'
+	},
+	lastChild: {
+		marginRight: 0
+	}
+});
 
-  style: ReactStyle({
-    backgroundColor: 'white',
-    fontSize: '10pt',
-    padding: '1em',
-    children: {
-      marginRight: '0.5em'
-    },
-    lastChild: {
-      marginRight: 0
-    }
-  }),
+class Application {
 
   render() {
-    return ReactStyle.style(this.style,
+    return ReactStyle.style(ApplicationStyle,
       <div>
         <h1 styles={ReactStyle({textAlign: this.state.textAlign})}>Application</h1>
-        <Button styles={Button.styles.success}>
+        <Button styles={ButtonStyles.success}>
           <Icon name="cog" /> OK
         </Button>
-        <Button styles={Button.styles.error}>
+        <Button styles={ButtonStyles.error}>
           <Icon name="remove" /> Cancel
         </Button>
         <TextAlignSwitcher
@@ -66,21 +67,20 @@ var Application = React.createClass({
           />
       </div>
     );
-  },
+  }
 
   getInitialState() {
     return {textAlign: 'left'};
-  },
+  }
 
   onTextAlign(textAlign) {
     this.setState({textAlign});
   }
 
-});
+}
 
 if (typeof window !== 'undefined') {
   ReactStyle.inject();
-  React.render(<Application />, document.getElementById('app'));
+	var ApplicationTag = React.createClass(Application.prototype);
+  React.render(<ApplicationTag />, document.getElementById('app'));
 }
-
-module.exports = Application;

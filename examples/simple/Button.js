@@ -21,17 +21,7 @@ var activeStyle = ReactStyle({
   boxShadow: '0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset'
 });
 
-var hoverStyle = ReactStyle({
-  color: '#000',
-  backgroundImage: 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))'
-});
-
-var focusStyle = ReactStyle({
-  backgroundImage: 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))',
-  outline: 'none'
-});
-
-var style = ReactStyle({
+var ButtonStyle = ReactStyle({
   fontFamily: 'inherit',
   fontSize: '100%',
   padding: '0.5em 1em',
@@ -41,17 +31,25 @@ var style = ReactStyle({
   textDecoration: 'none',
   borderRadius: '3px',
   ':active': activeStyle,
-  ':hover': hoverStyle,
-  ':focus': focusStyle
+
+	':hover': ReactStyle({
+	  color: '#000',
+	  backgroundImage: 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))'
+  }),
+
+  ':focus': ReactStyle({
+	  backgroundImage: 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))',
+	  outline: 'none'
+  })
 });
 
-var Button = React.createClass({
+class Button {
 
   render() {
     var props = this.props;
 	  var styles = [
       baseStyle,
-      style,
+		  ButtonStyle,
       this.props.active && activeStyle
     ].concat(props.styles);
 		props.styles = styles;
@@ -59,27 +57,7 @@ var Button = React.createClass({
         {props.children}
       </button>
     );
-  },
-
-  statics: {
-    styles: {
-      primary: ReactStyle({
-        backgroundColor: 'rgb(0, 120, 231)',
-        color: '#fff'
-      }),
-
-      success: ReactStyle({
-        color: 'white',
-        background: 'rgb(28, 184, 65)'
-      }),
-
-      error: ReactStyle({
-        color: 'white',
-        background: 'rgb(202, 60, 60)'
-      })
-    }
   }
+}
 
-});
-
-module.exports = Button;
+module.exports = React.createClass(Button.prototype);
