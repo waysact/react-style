@@ -47,7 +47,7 @@ var ApplicationStyle = ReactStyle({
   lastChild: {
     marginRight: 0
   }
-});
+}, 'ApplicationStyle');
 
 class Application {
 

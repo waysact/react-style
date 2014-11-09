@@ -22,7 +22,7 @@ var ButtonGroupStyle = ReactStyle({
     borderTopLeftRadius: 0,
     borderBottomLeftRadius: 0
   }
-});
+}, 'ButtonGroup');
 
 class ButtonGroup {
 

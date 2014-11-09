@@ -15,11 +15,11 @@ var baseStyle = ReactStyle({
   textAlign: 'center',
   cursor: 'pointer',
   userSelect: 'none'
-});
+}, 'Button_baseStyle');
 
 var activeStyle = ReactStyle({
   boxShadow: '0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset'
-});
+}, 'Button_activeStyle');
 
 var ButtonStyle = ReactStyle({
   fontFamily: 'inherit',
@@ -41,7 +41,7 @@ var ButtonStyle = ReactStyle({
     backgroundImage: 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))',
     outline: 'none'
   })
-});
+}, 'Button');
 
 class Button {
 
