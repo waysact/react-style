@@ -1,6 +1,5 @@
 module.exports = {
   entry: './index.js',
-  devtool: 'eval',
   output: {
     filename: 'bundle.js',
     path: __dirname + '/build',
