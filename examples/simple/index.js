@@ -5,12 +5,12 @@
 
 require('normalize.css/normalize.css');
 
-var React       = require('react');
-var ReactStyle  = require('react-style');
-var Icon        = require('react-fa');
-var Button      = require('./Button');
+var React        = require('react');
+var ReactStyle   = require('react-style');
+var Icon         = require('react-fa');
+var Button       = require('./Button');
 var ButtonStyles = require('./ButtonStyles');
-var ButtonGroup = require('./ButtonGroup');
+var ButtonGroup  = require('./ButtonGroup');
 
 var TextAlignSwitcher = React.createClass({
 
