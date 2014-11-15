@@ -3,10 +3,6 @@
  */
 'use strict';
 
-if ("production" !== process.env.NODE_ENV) {
-  console.info('[react-style] Please make sure React Style is loaded before React. Example: \nvar ReactStyle = require("react-style");\nvar React = require("react");');
-}
-
 require('normalize.css/normalize.css');
 
 var ReactStyle   = require('react-style');
