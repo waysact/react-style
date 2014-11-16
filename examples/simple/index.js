@@ -15,21 +15,24 @@ var ButtonGroup  = require('./ButtonGroup');
 var TextAlignSwitcher = React.createClass({
 
   render() {
+    var props = this.props;
+    var textAlign = props.textAlign;
+    var onTextAlign = props.onTextAlign;
     return (
-      <ButtonGroup>
+      <ButtonGroup styles={props.styles}>
         <Button
-          active={this.props.textAlign === 'left'}
-          onClick={this.props.onTextAlign.bind(null, 'left')}>
+          active={textAlign === 'left'}
+          onClick={onTextAlign.bind(null, 'left')}>
           <Icon name="align-left" /> Left
         </Button>
         <Button
-          active={this.props.textAlign === 'center'}
-          onClick={this.props.onTextAlign.bind(null, 'center')}>
+          active={textAlign === 'center'}
+          onClick={onTextAlign.bind(null, 'center')}>
           <Icon name="align-center" /> Center
         </Button>
         <Button
-          active={this.props.textAlign === 'right'}
-          onClick={this.props.onTextAlign.bind(null, 'right')}>
+          active={textAlign === 'right'}
+          onClick={onTextAlign.bind(null, 'right')}>
           <Icon name="align-right" /> Right
         </Button>
       </ButtonGroup>
@@ -37,31 +40,39 @@ var TextAlignSwitcher = React.createClass({
   }
 });
 
-var ApplicationStyle = ReactStyle({
-  backgroundColor: 'white',
-  fontSize: '10pt',
-  padding: '1em',
-  children: {
+var ApplicationStyles = {
+
+  normalStyle: ReactStyle({
+    backgroundColor: 'white',
+    fontSize: '10pt',
+    padding: '1em',
+    margin: 10
+  }, 'Application_normalStyle'),
+
+  childStyle: ReactStyle({
     marginRight: '0.5em'
-  },
-  lastChild: {
+  }, 'Application_childStyle'),
+
+  lastChildStyle: ReactStyle({
     marginRight: 0
-  }
-}, 'ApplicationStyle');
+  }, 'Application_lastChildStyle')
+
+};
 
 class Application {
 
   render() {
-    return ReactStyle.style(ApplicationStyle,
-      <div>
+    return (
+      <div styles={ApplicationStyles.normalStyle}>
         <h1 styles={ReactStyle({textAlign: this.state.textAlign})}>Application</h1>
-        <Button styles={ButtonStyles.success}>
+        <Button styles={[ButtonStyles.success]}>
           <Icon name="cog" /> OK
         </Button>
-        <Button styles={ButtonStyles.error}>
+        <Button styles={[ApplicationStyles.childStyle, ButtonStyles.error]}>
           <Icon name="remove" /> Cancel
         </Button>
         <TextAlignSwitcher
+          styles={ApplicationStyles.lastChild}
           textAlign={this.state.textAlign}
           onTextAlign={this.onTextAlign}
           />
@@ -70,7 +81,9 @@ class Application {
   }
 
   getInitialState() {
-    return {textAlign: 'left'};
+    return {
+      textAlign: 'left'
+    };
   }
 
   onTextAlign(textAlign) {

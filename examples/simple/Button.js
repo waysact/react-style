@@ -9,7 +9,7 @@ var ReactStyle = require('react-style');
 var ButtonStyles = {
 
   normalStyle: ReactStyle({
-    display: 'inline-block !important',
+    display: 'inline-block',
     zoom: 1,
     lineHeight: 'normal',
     whiteSpace: 'nowrap',
@@ -25,7 +25,7 @@ var ButtonStyles = {
     border: 'none rgba(0, 0, 0, 0)',
     backgroundColor: '#E6E6E6',
     textDecoration: 'none',
-    borderRadius: '3px',
+    borderRadius: '3px'
   }, 'Button_baseStyle'),
 
   activeStyle: ReactStyle({
@@ -40,31 +40,34 @@ var ButtonStyles = {
   focusStyle: ReactStyle({
     backgroundImage: 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))',
     outline: 'none'
-  })
+  }, 'Button_focusStyle')
 };
 
 class Button {
 
   getInitialState() {
     return {
+      focus: false,
       hover: false
     }
   }
 
   render() {
     var props = this.props;
-    var propStyles = props.styles;
     var state = this.state;
     var styles = [
         ButtonStyles.normalStyle,
         props.active ? ButtonStyles.activeStyle : null,
-        state.hover ? ButtonStyles.hoverStyle : null
+        state.hover ? ButtonStyles.hoverStyle : null,
+        state.focus ? ButtonStyles.focusStyle : null
     ].concat(props.styles);
 
     return (
       <button {...props} styles={styles}
         onMouseEnter={this.onMouseEnter}
-        onMouseLeave={this.onMouseLeave}>
+        onMouseLeave={this.onMouseLeave}
+        onFocus={this.onFocus}
+        onBlur={this.onBlur}>
         {props.children}
       </button>
     );
@@ -76,6 +79,14 @@ class Button {
 
   onMouseLeave() {
     this.setState({hover: false});
+  }
+
+  onFocus() {
+    this.setState({focus: true});
+  }
+
+  onBlur() {
+    this.setState({focus: false})
   }
 }
 
