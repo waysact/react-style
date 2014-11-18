@@ -10,7 +10,7 @@ var ButtonGroupStyles = {
 
   normalStyle: ReactStyle({
     display: 'inline'
-  }),
+  }, 'ButtonGroup_normalStyle'),
 
   childStyle: ReactStyle({
     borderRadius: 0,

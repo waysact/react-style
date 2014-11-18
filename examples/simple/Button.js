@@ -9,23 +9,22 @@ var ReactStyle = require('react-style');
 var ButtonStyles = {
 
   normalStyle: ReactStyle({
-    display: 'inline-block',
-    zoom: 1,
-    lineHeight: 'normal',
-    whiteSpace: 'nowrap',
-    verticalAlign: 'baseline',
-    textAlign: 'center',
-    cursor: 'pointer',
-    userSelect: 'none',
-    fontFamily: 'inherit',
-    outline: 'none',
-    fontSize: '100%',
-    padding: '0.5em 1em',
-    color: 'rgba(0, 0, 0, 0.70)',
-    border: 'none rgba(0, 0, 0, 0)',
     backgroundColor: '#E6E6E6',
+    border: 'none rgba(0, 0, 0, 0)',
+    borderRadius: 3,
+    color: 'rgba(0, 0, 0, 0.70)',
+    cursor: 'pointer',
+    display: 'inline-block',
+    fontFamily: 'inherit',
+    fontSize: '100%',
+    lineHeight: 'normal',
+    padding: '0.5em 1em',
+    userSelect: 'none',
+    textAlign: 'center',
     textDecoration: 'none',
-    borderRadius: '3px'
+    verticalAlign: 'baseline',
+    whiteSpace: 'nowrap',
+    zoom: 1
   }, 'Button_baseStyle'),
 
   activeStyle: ReactStyle({
@@ -41,6 +40,7 @@ var ButtonStyles = {
     backgroundImage: 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))',
     outline: 'none'
   }, 'Button_focusStyle')
+
 };
 
 class Button {
@@ -64,29 +64,13 @@ class Button {
 
     return (
       <button {...props} styles={styles}
-        onMouseEnter={this.onMouseEnter}
-        onMouseLeave={this.onMouseLeave}
-        onFocus={this.onFocus}
-        onBlur={this.onBlur}>
+        onMouseEnter={() => this.setState({hover: true})}
+        onMouseLeave={() => this.setState({hover: false})}
+        onFocus={() => this.setState({focus:true})}
+        onBlur={() => this.setState({focus: false})}>
         {props.children}
       </button>
     );
-  }
-
-  onMouseEnter() {
-    this.setState({hover: true});
-  }
-
-  onMouseLeave() {
-    this.setState({hover: false});
-  }
-
-  onFocus() {
-    this.setState({focus: true});
-  }
-
-  onBlur() {
-    this.setState({focus: false})
   }
 }
 

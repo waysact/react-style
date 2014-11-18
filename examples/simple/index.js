@@ -61,6 +61,12 @@ var ApplicationStyles = {
 
 class Application {
 
+  getInitialState() {
+    return {
+      textAlign: 'left'
+    };
+  }
+
   render() {
     return (
       <div styles={ApplicationStyles.normalStyle}>
@@ -73,22 +79,12 @@ class Application {
         </Button>
         <TextAlignSwitcher
           styles={ApplicationStyles.lastChild}
-          textAlign={this.state.textAlign}
-          onTextAlign={this.onTextAlign}
+          onTextAlign={(textAlign) => this.setState({textAlign: textAlign})}
           />
       </div>
     );
   }
 
-  getInitialState() {
-    return {
-      textAlign: 'left'
-    };
-  }
-
-  onTextAlign(textAlign) {
-    this.setState({textAlign});
-  }
 
 }
 
