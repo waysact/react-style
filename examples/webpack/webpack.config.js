@@ -41,7 +41,8 @@ module.exports = {
     new ReactStylePlugin('bundle.css'),
     new webpack.DefinePlugin({
       'process.env': {
-        //production: NODE_ENV: JSON.stringify('production')
+        // To enable production mode:
+        // NODE_ENV: JSON.stringify('production')
       }
     })
   ]
