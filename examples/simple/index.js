@@ -74,7 +74,7 @@ class Application {
         <Button styles={[ButtonStyles.success]}>
           <Icon name="cog" /> OK
         </Button>
-        <Button styles={[ApplicationStyles.childStyle, ButtonStyles.error]}>
+        <Button styles={[ButtonStyles.error, ApplicationStyles.childStyle]}>
           <Icon name="remove" /> Cancel
         </Button>
         <TextAlignSwitcher
