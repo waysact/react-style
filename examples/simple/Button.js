@@ -63,7 +63,7 @@ class Button {
     ].concat(props.styles);
 
     return (
-      <button {...props} styles={styles}
+      <button {...props} className="custom" styles={styles}
         onMouseEnter={() => this.setState({hover: true})}
         onMouseLeave={() => this.setState({hover: false})}
         onFocus={() => this.setState({focus:true})}
