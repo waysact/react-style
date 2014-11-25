@@ -1,6 +1,9 @@
+'use strict';
+
+var webpack = require('webpack');
+
 module.exports = {
   entry: './index.js',
-  devtool: 'eval',
   output: {
     filename: 'bundle.js',
     path: __dirname + '/build',
@@ -27,5 +30,12 @@ module.exports = {
         loader: 'url-loader'
       }
     ]
-  }
+  },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        //production: NODE_ENV: JSON.stringify('production')
+      }
+    })
+  ]
 };

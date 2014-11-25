@@ -3,8 +3,10 @@
 var ReactStylePlugin = require('react-style-webpack-plugin');
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+var webpack = require('webpack');
+
 module.exports = {
-  //devtool: 'sourcemap',
+  devtool: 'sourcemap',
   entry: './index.js',
   output: {
     filename: "bundle.js",
@@ -36,6 +38,12 @@ module.exports = {
     ]
   },
   plugins: [
-    new ReactStylePlugin('bundle.css')
+    new ReactStylePlugin('bundle.css'),
+    new webpack.DefinePlugin({
+      'process.env': {
+        // To enable production mode:
+        // NODE_ENV: JSON.stringify('production')
+      }
+    })
   ]
 };

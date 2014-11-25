@@ -3,35 +3,56 @@
  */
 'use strict';
 
-var React           = require('react');
-var ReactStyle      = require('react-style');
+var React = require('react');
+var ReactStyle = require('react-style');
 
-var ButtonGroup = React.createClass({
+var ButtonGroupStyles = {
 
-  style: ReactStyle({
-    display: 'inline-block',
-    children: {
-      margin: 0,
-      borderRadius: 0
-    },
-    firstChild: {
-      margin: 0,
-      borderTopRightRadius: 0,
-      borderBottomRightRadius: 0
-    },
-    lastChild: {
-      margin: 0,
-      borderTopLeftRadius: 0,
-      borderBottomLeftRadius: 0
-    }
-  }),
+  normalStyle: ReactStyle`
+    display: inline;
+  `,
+
+  childStyle: ReactStyle`
+    borderRadius: 0;
+    margin: 0;
+  `,
+
+  firstChildStyle: ReactStyle`
+    borderTopLeftRadius: 3px;
+    borderBottomLeftRadius: 3px;
+  `,
+
+  lastChildStyle: ReactStyle`
+    borderTopRightRadius: 3px;
+    borderBottomRightRadius: 3px;
+  `
+
+};
+
+class ButtonGroup {
 
   render() {
-    var styles = [this.style, this.props.styles];
-    return ReactStyle.style(styles,
-      <div>{this.props.children}</div>
+    var children = this.props.children;
+    var childrenWithStyle = [];
+    for (var i = 0, l = children.length; i  < l; i++) {
+      var child = children[i];
+      var childProps = child.props;
+      childProps.styles = [ButtonGroupStyles.childStyle];
+      if (i === 0) {
+        childProps.styles.push(ButtonGroupStyles.firstChildStyle);
+      }
+      if (i === l - 1) {
+        childProps.styles.push(ButtonGroupStyles.lastChildStyle);
+      }
+
+      childrenWithStyle.push(child);
+    }
+    return (
+      <div styles={ButtonGroupStyles.normalStyle}>
+        {childrenWithStyle}
+      </div>
     );
   }
-});
+}
 
-module.exports = ButtonGroup;
+module.exports = React.createClass(ButtonGroup.prototype);
