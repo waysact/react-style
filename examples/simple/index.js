@@ -89,7 +89,6 @@ class Application {
 }
 
 if (typeof window !== 'undefined') {
-  ReactStyle.inject();
   var ApplicationTag = React.createClass(Application.prototype);
   React.render(<ApplicationTag />, document.getElementById('app'));
 }

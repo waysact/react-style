@@ -13,6 +13,7 @@ var ButtonStyles = require('./ButtonStyles');
 var ButtonGroup  = require('./ButtonGroup');
 
 var TextAlignSwitcher = React.createClass({
+  displayName: 'TextAlignSwitcher',
 
   render() {
     var props = this.props;
@@ -42,30 +43,31 @@ var TextAlignSwitcher = React.createClass({
 
 var ApplicationStyles = {
 
-  normalStyle: ReactStyle`
-    backgroundColor: white;
-    fontSize: 10pt;
-    padding: 1em;
-    margin: 10px;
-  `,
+  normalStyle: ReactStyle({
+    backgroundColor: 'white',
+    fontSize: '10pt',
+    padding: '1em',
+    margin: 10
+  }, 'Application_normalStyle'),
 
-  childStyle: ReactStyle`
-    marginRight: 0.5em
-  `,
+  childStyle: ReactStyle({
+    marginRight: '0.5em'
+  }, 'Application_childStyle'),
 
-  lastChildStyle: ReactStyle`
+  lastChildStyle: ReactStyle({
     marginRight: 0
-  `
+  }, 'Application_lastChildStyle')
 
 };
 
-class Application {
+var Application = React.createClass({
+  displayName: 'Application',
 
   getInitialState() {
     return {
       textAlign: 'left'
     };
-  }
+  },
 
   render() {
     return (
@@ -80,14 +82,14 @@ class Application {
         <TextAlignSwitcher
           styles={ApplicationStyles.lastChild}
           onTextAlign={(textAlign) => this.setState({textAlign: textAlign})}
-        />
+          />
       </div>
     );
   }
 
-}
+});
 
 if (typeof window !== 'undefined') {
-  var ApplicationTag = React.createClass(Application.prototype);
+  var ApplicationTag = Application;
   React.render(<ApplicationTag />, document.getElementById('app'));
 }
