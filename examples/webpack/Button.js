@@ -32,8 +32,8 @@ var ButtonStyles = {
   }),
 
   hoverStyle: ReactStyle({
-    color: '#000',
-    backgroundImage: 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))'
+    backgroundImage: 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))',
+    color:      '#000'
   }),
 
   focusStyle: ReactStyle({
