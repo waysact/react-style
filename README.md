@@ -26,14 +26,7 @@ Style React components:
       }
     })
 
-Now with these two lines you get your application styled and running:
-
-    ReactStyle.inject()
-    React.renderComponent(<HelloWorld color="red" />, document.body)
-
-Styles which are found to be at the module level will be compiled to CSS classes
-and injected into DOM as `<style>` element. Dynamic styles (as `dynamicStyles`
-is defined inside `render()` method) will be applied to DOM as inline styles.
+By default styles are applied to the DOM as inline styles.
 
 ## Extracting styles into CSS at build time
 
@@ -62,6 +55,11 @@ This syntax is consistent with [ES6 tagged template literal][es6-templ]
 The syntax helpers are convenient when transitioning a large CSS
 code base to React Style. It makes it possible to directly copy paste styles 
 from your CSS and later refactor them into a more modular form.
+
+## Not supported CSS features
+React Style does not support pseudo-classes, media-queries and CSS animation.
+Mostly because we try to avoid implicit behaviour and want the user to make
+layout decisions inside the `render()` function.
 
 License
 ---
