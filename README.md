@@ -18,13 +18,14 @@ Style React components:
 
     var React = require('react')
 
-    var HelloWorld = React.createClass({
+    class HelloWorld extends React.Component{
 
       render() {
         var dynamicStyles = ReactStyle({color: this.props.color})
         return <div styles={[styles, dynamicStyles]}>Hello, world!</div>
       }
-    })
+
+    }
 
 By default styles are applied to the DOM as inline styles.
 
