@@ -29,7 +29,7 @@ var ButtonGroupStyles = {
 
 };
 
-class ButtonGroup {
+class ButtonGroup extends React.Component {
 
   render() {
     var children = this.props.children;
@@ -55,4 +55,4 @@ class ButtonGroup {
   }
 }
 
-module.exports = React.createClass(ButtonGroup.prototype);
+module.exports = ButtonGroup;

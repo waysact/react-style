@@ -43,10 +43,11 @@ var ButtonStyles = {
 
 };
 
-class Button {
+class Button extends React.Component {
 
-  getInitialState() {
-    return {
+  constructor(props) {
+    super(props);
+    this.state = {
       focus: false,
       hover: false
     };
@@ -74,4 +75,4 @@ class Button {
   }
 }
 
-module.exports = React.createClass(Button.prototype);
+module.exports = Button;

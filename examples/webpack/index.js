@@ -59,10 +59,11 @@ var ApplicationStyles = {
 
 };
 
-class Application {
+class Application extends React.Component {
 
-  getInitialState() {
-    return {
+  constructor(props) {
+    super(props);
+    this.state = {
       textAlign: 'left'
     };
   }
@@ -89,6 +90,5 @@ class Application {
 }
 
 if (typeof window !== 'undefined') {
-  var ApplicationTag = React.createClass(Application.prototype);
-  React.render(<ApplicationTag />, document.getElementById('app'));
+  React.render(<Application />, document.getElementById('app'));
 }
