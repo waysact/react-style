@@ -24,22 +24,23 @@ var ButtonStyles = {
     textDecoration: 'none',
     verticalAlign: 'baseline',
     whiteSpace: 'nowrap',
-    zoom: 1
-  }, 'Button_baseStyle'),
+    zoom: 1,
+    zIndex: 2000
+  }),
 
   activeStyle: ReactStyle({
     boxShadow: '0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset'
-  }, 'Button_activeStyle'),
+  }),
 
   hoverStyle: ReactStyle({
     color: '#000',
     backgroundImage: 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))'
-  }, 'Button_hoverStyle'),
+  }),
 
   focusStyle: ReactStyle({
     backgroundImage: 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))',
     outline: 'none'
-  }, 'Button_focusStyle')
+  })
 
 };
 

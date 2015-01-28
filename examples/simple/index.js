@@ -47,15 +47,15 @@ var ApplicationStyles = {
     fontSize: '10pt',
     padding: '1em',
     margin: 10
-  }, 'Application_normalStyle'),
+  }),
 
   childStyle: ReactStyle({
     marginRight: '0.5em'
-  }, 'Application_childStyle'),
+  }),
 
   lastChildStyle: ReactStyle({
     marginRight: 0
-  }, 'Application_lastChildStyle')
+  })
 
 };
 

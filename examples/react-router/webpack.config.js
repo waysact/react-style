@@ -1,50 +1,34 @@
-'use strict';
-
-var ReactStylePlugin = require('react-style-webpack-plugin');
-var ExtractTextPlugin = require('extract-text-webpack-plugin');
-
 var webpack = require('webpack');
+var ReactStylePlugin = require('react-style-webpack-plugin');
+var CommonsChunkPlugin = require("webpack/lib/optimize/CommonsChunkPlugin");
 
 module.exports = {
-  devtool: 'sourcemap',
-  entry: './index.js',
+
+  entry: {
+    app2: "./index.js",
+    app: "./index2.js"
+  },
+
   output: {
-    filename: "bundle.js",
-    path: __dirname + "/build"
+    filename: "assets/[name].js",
+    publicPath: "/"
   },
-  resolve: {
-    alias: {
-      'react$': require.resolve('../../node_modules/react'),
-      'react-style$': require.resolve('../../lib/index')
-    }
-  },
+
   module: {
     loaders: [
-      {
-        test: /\.js$/,
+      { test: /\.js$/,
         loaders: [
           ReactStylePlugin.loader(),
           'jsx-loader?harmony'
         ]
-      },
-      {
-        test: /\.css$/,
-        loader: ExtractTextPlugin.extract('css-loader')
-      },
-      {
-        test: /\.(otf|eot|svg|ttf|woff)/,
-        loader: 'url-loader?limit=8192'
       }
     ]
   },
-  plugins: [
 
-    new webpack.DefinePlugin({
-      'process.env': {
-        // To enable production mode:
-        NODE_ENV: JSON.stringify('production')
-      }
-    }),
-    new ReactStylePlugin('bundle.css')
+  plugins: [
+    new ReactStylePlugin('app', 'assets/app.css'),
+    new ReactStylePlugin('app2', 'assets/app2.css'),
+    new CommonsChunkPlugin("assets/commons.chunk.js")
   ]
+
 };

@@ -10,22 +10,22 @@ var ButtonGroupStyles = {
 
   normalStyle: ReactStyle({
     display: 'inline'
-  }, 'ButtonGroup_normalStyle'),
+  }),
 
   childStyle: ReactStyle({
     borderRadius: 0,
     margin: 0
-  }, 'ButtonGroup_childStyle'),
+  }),
 
   firstChildStyle: ReactStyle({
     borderTopLeftRadius: 3,
     borderBottomLeftRadius: 3
-  }, 'ButtonGroup_firstChildStyle'),
+  }),
 
   lastChildStyle: ReactStyle({
     borderTopRightRadius: 3,
     borderBottomRightRadius: 3
-  }, 'ButtonGroup_lastChildStyle')
+  })
 
 };
 
