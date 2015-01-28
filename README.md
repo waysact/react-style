@@ -39,7 +39,6 @@ Generated CSS class names are descriptive by default and minimized when using
 
 Source Maps are supported, but only for the generated JavaScript.
 
-
 ## Syntax helpers for writing styles
 
 There's [React Style syntax][] which allows you to write styles like this:
@@ -62,7 +61,11 @@ The syntax helpers are convenient when transitioning a large CSS
 code base to React Style. It makes it possible to directly copy paste styles 
 from your CSS and later refactor them into a more modular form.
 
+## What's wrong with CSS/SCSS/less?
+
+
 ## Not supported CSS features
+
 React Style does not support CSS selectors, pseudo-classes, media-queries
 and CSS animation. Mostly because we try to avoid implicit behaviour and
 want the user to make layout decisions inside the `render()` function.
@@ -90,9 +93,11 @@ between the component and the CSS animation. We however believe state should be
 contained within a component.
 
 ## React Style and React Router
-It's possible to use React Style with React Router.
+
+Work in progress...
 
 ## React Style and React Hot Loader
+
 It's possible to use React Style with React Hot Loader, when you don't use
 react-style-webpack-plugin. If you do want to build CSS with React Style and
 use React Hot Loader - we recommend making multiple webpack profiles.
