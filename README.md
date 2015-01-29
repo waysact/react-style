@@ -63,6 +63,7 @@ code base to React Style. It makes it possible to directly copy paste styles
 from your CSS and later refactor them into a more modular form.
 
 ## What's wrong with CSS/SCSS/less?
+A lot, and @vjeux covered it pretty good in his presentation: [CSS in JS][css-in-js]
 
 
 ## Not supported CSS features
@@ -112,3 +113,4 @@ MIT
 [React Style Webpack plugin]: https://github.com/js-next/react-style-webpack-plugin
 [React Style syntax]: https://github.com/js-next/react-style-syntax
 [es6-templ]: http://tc39wiki.calculist.org/es6/template-strings/
+[css-in-js]: https://speakerdeck.com/vjeux/react-css-in-js

@@ -43,15 +43,15 @@ var ButtonStyles = {
 
 };
 
-var Button = React.createClass({
-  displayName: 'Button',
+class Button extends React.Component{
 
-  getInitialState() {
-    return {
+  constructor(props) {
+    super(props);
+    this.state = {
       focus: false,
       hover: false
     };
-  },
+  }
 
   render() {
     var props = this.props;
@@ -73,6 +73,6 @@ var Button = React.createClass({
       </button>
     );
   }
-});
+}
 
 module.exports = Button;

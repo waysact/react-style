@@ -12,8 +12,7 @@ var Button       = require('./Button');
 var ButtonStyles = require('./ButtonStyles');
 var ButtonGroup  = require('./ButtonGroup');
 
-var TextAlignSwitcher = React.createClass({
-  displayName: 'TextAlignSwitcher',
+class TextAlignSwitcher extends React.Component{
 
   render() {
     var props = this.props;
@@ -39,7 +38,7 @@ var TextAlignSwitcher = React.createClass({
       </ButtonGroup>
     );
   }
-});
+}
 
 var ApplicationStyles = {
 
@@ -60,14 +59,15 @@ var ApplicationStyles = {
 
 };
 
-var Application = React.createClass({
-  displayName: 'Application',
+class Application extends React.Component {
 
-  getInitialState() {
-    return {
+  constructor(props){
+    super(props);
+
+    this.state = {
       textAlign: 'left'
     };
-  },
+  }
 
   render() {
     return (
@@ -87,9 +87,8 @@ var Application = React.createClass({
     );
   }
 
-});
+}
 
 if (typeof window !== 'undefined') {
-  var ApplicationTag = Application;
-  React.render(<ApplicationTag />, document.getElementById('app'));
+  React.render(<Application />, document.getElementById('app'));
 }
