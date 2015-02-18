@@ -3,46 +3,8 @@
  */
 'use strict';
 
-var ReactStyle = require('react-style');
+var StyleSheet = require('react-style');
 var React = require('react');
-
-var ButtonStyles = {
-
-  normalStyle: ReactStyle({
-    backgroundColor: '#E6E6E6',
-    border: 'none rgba(0, 0, 0, 0)',
-    borderRadius: 3,
-    color: 'rgba(0, 0, 0, 0.70)',
-    cursor: 'pointer',
-    display: 'inline-block',
-    fontFamily: 'inherit',
-    fontSize: '100%',
-    lineHeight: 'normal',
-    padding: '0.5em 1em',
-    userSelect: 'none',
-    textAlign: 'center',
-    textDecoration: 'none',
-    verticalAlign: 'baseline',
-    whiteSpace: 'nowrap',
-    zoom: 1,
-    zIndex: 2000
-  }),
-
-  activeStyle: ReactStyle({
-    boxShadow: '0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset'
-  }),
-
-  hoverStyle: ReactStyle({
-    color: '#000',
-    backgroundImage: 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))'
-  }),
-
-  focusStyle: ReactStyle({
-    backgroundImage: 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))',
-    outline: 'none'
-  })
-
-};
 
 class Button extends React.Component {
 
@@ -75,5 +37,44 @@ class Button extends React.Component {
     );
   }
 }
+
+
+var ButtonStyles = StyleSheet.create({
+
+  normalStyle: {
+    backgroundColor: '#E6E6E6',
+    border: 'none rgba(0, 0, 0, 0)',
+    borderRadius: 3,
+    color: 'rgba(0, 0, 0, 0.70)',
+    cursor: 'pointer',
+    display: 'inline-block',
+    fontFamily: 'inherit',
+    fontSize: '100%',
+    lineHeight: 'normal',
+    padding: '0.5em 1em',
+    userSelect: 'none',
+    textAlign: 'center',
+    textDecoration: 'none',
+    verticalAlign: 'baseline',
+    whiteSpace: 'nowrap',
+    zoom: 1,
+    zIndex: 2000
+  },
+
+  activeStyle: {
+    boxShadow: '0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset'
+  },
+
+  hoverStyle: {
+    color: '#000',
+    backgroundImage: 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))'
+  },
+
+  focusStyle: {
+    backgroundImage: 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))',
+    outline: 'none'
+  }
+
+});
 
 module.exports = Button;
