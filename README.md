@@ -3,15 +3,18 @@
 [![Build Status](https://travis-ci.org/js-next/react-style.svg?branch=master)](https://travis-ci.org/js-next/react-style)
 [![Code Climate](https://codeclimate.com/github/js-next/react-style/badges/gpa.svg)](https://codeclimate.com/github/js-next/react-style)
 
-React Style is an approach for styling [React][] components.
+React Style is an approach for styling [React][] components. It uses the same
+syntax as `StyleSheet.create` from React Native.
 
 Define styles using full power of JavaScript:
 
-    var ReactStyle = require('react-style')
+    var StyleSheet = require('react-style')
 
-    var styles = ReactStyle({
-      color: 'red',
-      backgroundColor: 'white'
+    var styles = StyleSheet.create({
+        foo: {
+          color: 'red',
+          backgroundColor: 'white'
+        }
     })
 
 Style React components:
@@ -21,8 +24,8 @@ Style React components:
     class HelloWorld extends React.Component{
 
       render() {
-        var dynamicStyles = ReactStyle({color: this.props.color})
-        return <div styles={[styles, dynamicStyles]}>Hello, world!</div>
+        var dynamicStyles = {color: this.props.color}
+        return <div styles={[styles.foo, dynamicStyles]}>Hello, world!</div>
       }
 
     }
@@ -65,6 +68,8 @@ from your CSS and later refactor them into a more modular form.
 ## What's wrong with CSS/SCSS/less?
 A lot, and @vjeux covered it pretty good in his presentation: [CSS in JS][css-in-js]
 
+## Why isn't this included inside React.js yet?
+Good question! During reconciliation 
 
 ## Not supported CSS features
 
