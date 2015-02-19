@@ -92,7 +92,7 @@ class Application extends React.Component {
   render() {
     return (
       <div styles={ApplicationStyles.normalStyle}>
-        <h1 styles={ReactStyle({textAlign: this.state.textAlign})}>Application</h1>
+        <h1 styles={{textAlign: this.state.textAlign}}>Application</h1>
         <Button styles={[ButtonStyles.success]}>
           <Icon name="cog" /> OK
         </Button>
