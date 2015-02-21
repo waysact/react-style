@@ -5,33 +5,14 @@
 
 require('normalize.css/normalize.css');
 
-var ReactStyle   = require('react-style');
+var StyleSheet   = require('react-style');
 var React        = require('react');
 var Icon         = require('react-fa');
 var Button       = require('./Button');
 var ButtonStyles = require('./ButtonStyles');
 var ButtonGroup  = require('./ButtonGroup');
 
-var TextAlignSwitcherStyles = {
-
-  childStyle: ReactStyle({
-    borderRadius: 0,
-    margin: 0
-  }),
-
-  firstChildStyle: ReactStyle({
-    borderTopLeftRadius: 3,
-    borderBottomLeftRadius: 3
-  }),
-
-  lastChildStyle: ReactStyle({
-    borderTopRightRadius: 3,
-    borderBottomRightRadius: 3
-  })
-
-};
-
-var TextAlignSwitcher = React.createClass({
+class TextAlignSwitcher extends React.Component {
 
   render() {
     var props = this.props;
@@ -59,26 +40,26 @@ var TextAlignSwitcher = React.createClass({
       </ButtonGroup>
     );
   }
+}
+
+var TextAlignSwitcherStyles = StyleSheet.create({
+
+  childStyle: {
+    borderRadius: 0,
+    margin: 0
+  },
+
+  firstChildStyle: {
+    borderTopLeftRadius: 3,
+    borderBottomLeftRadius: 3
+  },
+
+  lastChildStyle: {
+    borderTopRightRadius: 3,
+    borderBottomRightRadius: 3
+  }
+
 });
-
-var ApplicationStyles = {
-
-  normalStyle: ReactStyle({
-    backgroundColor: 'white',
-    fontSize: '10pt',
-    padding: '1em',
-    margin: 10
-  }),
-
-  childStyle: ReactStyle({
-    marginRight: '0.5em'
-  }),
-
-  lastChildStyle: ReactStyle({
-    marginRight: 0
-  })
-
-};
 
 class Application extends React.Component {
 
@@ -102,13 +83,32 @@ class Application extends React.Component {
         <TextAlignSwitcher
           styles={ApplicationStyles.lastChild}
           onTextAlign={(textAlign) => this.setState({textAlign: textAlign})}
-        />
+          />
       </div>
     );
   }
 
-
 }
+
+
+var ApplicationStyles = StyleSheet.create({
+
+  normalStyle: {
+    backgroundColor: 'white',
+    fontSize: '10pt',
+    padding: '1em',
+    margin: 10
+  },
+
+  childStyle: {
+    marginRight: '0.5em'
+  },
+
+  lastChildStyle: {
+    marginRight: 0
+  }
+
+});
 
 if (typeof window !== 'undefined') {
   React.render(<Application />, document.getElementById('app'));

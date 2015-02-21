@@ -99,11 +99,11 @@ decoupled from logic. By being decoupled, the state of the component is split
 between the component and the CSS animation. We however believe state should be
 contained within a component.
 
-## React Style and React Router
+## React Router support
 
 Work in progress...
 
-## React Style and React Hot Loader
+## React Hot Loader support
 
 It's possible to use React Style with React Hot Loader, when you don't use
 react-style-webpack-plugin. If you do want to build CSS with React Style and

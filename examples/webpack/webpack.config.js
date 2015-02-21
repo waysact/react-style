@@ -42,7 +42,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         // To enable production mode:
-        // NODE_ENV: JSON.stringify('production')
+         NODE_ENV: JSON.stringify('production')
       }
     })
   ]

@@ -3,16 +3,8 @@
  */
 'use strict';
 
+var StyleSheet = require('react-style');
 var React = require('react');
-var ReactStyle = require('react-style');
-
-var ButtonGroupStyles = {
-
-  normalStyle: ReactStyle({
-    display: 'inline'
-  })
-
-};
 
 class ButtonGroup extends React.Component {
 
@@ -24,5 +16,13 @@ class ButtonGroup extends React.Component {
     );
   }
 }
+
+var ButtonGroupStyles = StyleSheet.create({
+
+  normalStyle: {
+    display: 'inline'
+  }
+
+});
 
 module.exports = ButtonGroup;

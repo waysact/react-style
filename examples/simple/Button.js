@@ -57,8 +57,7 @@ var ButtonStyles = StyleSheet.create({
     textDecoration: 'none',
     verticalAlign: 'baseline',
     whiteSpace: 'nowrap',
-    zoom: 1,
-    zIndex: 2000
+    zoom: 1
   },
 
   activeStyle: {
