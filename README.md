@@ -41,9 +41,22 @@ ability to extract styles from your application at build time. The result is a
 Generated CSS class names are descriptive by default and minimized when using
 `NODE_ENV=production`.
 
+To make sure that the order of the `styles` property is maintained, React Style
+uses a CSS overrides hack which results in the above example results in:
+
+    .foo,.foo.foo1,.foo.foo1.foo2. (etc.)
+
+By default an amount of 10 is used, but can be adjusted by setting the
+`maxOverridesLength` property:
+
+    var StyleSheet = require('react-style')
+    StyleSheet.maxOverridesLength = 1;
+
 Source Maps are supported, but only for the generated JavaScript.
 
 ## Syntax helpers for writing styles
+
+TODO: change to new syntax
 
 There's [React Style syntax][] which allows you to write styles like this:
 
@@ -69,7 +82,7 @@ from your CSS and later refactor them into a more modular form.
 A lot, and @vjeux covered it pretty good in his presentation: [CSS in JS][css-in-js]
 
 ## Why isn't this included inside React.js yet?
-Good question! During reconciliation 
+Good question! 
 
 ## Not supported CSS features
 
