@@ -82,7 +82,7 @@ from your CSS and later refactor them into a more modular form.
 A lot, and @vjeux covered it pretty good in his presentation: [CSS in JS][css-in-js]
 
 ## Why isn't this included inside React.js yet?
-Good question! 
+See https://github.com/facebook/react/pull/2196
 
 ## Not supported CSS features
 

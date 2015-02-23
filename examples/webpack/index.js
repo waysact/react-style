@@ -18,7 +18,6 @@ class TextAlignSwitcher extends React.Component {
 
   render() {
     var props = this.props;
-
     return (
       <ButtonGroup styles={props.styles}>
         <Button
