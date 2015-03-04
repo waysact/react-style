@@ -12,13 +12,19 @@ module.exports = {
     path: path.join(__dirname),
     filename: 'bundle.js'
   },
-
+  //resolve: {
+  //  alias: {
+  //    'react$': require.resolve('../../node_modules/react'),
+  //    'react-style$': require.resolve('../../lib/index'),
+  //    'react-hot$': require.resolve('./node_modules/react-hot-loader/index')
+  //  }
+  //},
   module: {
     loaders: [
       { test: /\.js$/,
         loaders: [
-          'jsx?harmony',
-          'react-hot'
+          'react-hot',
+          'jsx?harmony'
         ]
       },
       {
