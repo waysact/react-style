@@ -110,6 +110,16 @@ var ApplicationStyles = StyleSheet.create({
 
 });
 
+StyleSheet
+  .matchMedia('screen and (min-width: 800px)')
+  .assign(ApplicationStyles, {
+
+    normalStyle: {
+      backgroundColor: 'purple'
+    }
+
+  });
+
 if (typeof window !== 'undefined') {
   React.render(<Application />, document.getElementById('app'));
 }

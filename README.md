@@ -78,6 +78,23 @@ The syntax helpers are convenient when transitioning a large CSS
 code base to React Style. It makes it possible to directly copy paste styles 
 from your CSS and later refactor them into a more modular form.
 
+## Support for media queries
+Media queries are supported by React Style with the following syntax:
+
+    var fooStyles = StyleSheet.create({
+        bar: {
+           color: 'green'
+        }
+    });
+
+    StyleSheet.matchMedia('screen and (min-width:200px)').assign({
+        bar: {
+            color: 'purple'
+        }
+    });
+
+Still open for discussion! Input very welcome :-).
+
 ## What's wrong with CSS/SCSS/less?
 A lot, and @vjeux covered it pretty good in his presentation: [CSS in JS][css-in-js]
 
@@ -103,11 +120,6 @@ will do the trick. In all, you don't need CSS for this. In some cases though
 you might want to use pseudo-classes (like styling a scrollbar) - which we do
 support.
 
-Media-queries are easily implemented inside the `render` function, using
-`Screen.width` for example. Full media-query support will be added to React 
-Style after the upcoming release (inline-styles branch) and support both 
-inline styles as generated CSS.
-
 Animations inside CSS also introduce implicit behaviour, as CSS animations are
 decoupled from logic. By being decoupled, the state of the component is split
 between the component and the CSS animation. We however believe state should be
@@ -116,7 +128,7 @@ Magician][react-magician].
 
 ## React Router support
 
-Work in progress...
+We have something working, but it's not perfect yet. 
 
 ## React Hot Loader support
 
