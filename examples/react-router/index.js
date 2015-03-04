@@ -1,41 +1,8 @@
-var ReactStyle = require('react-style');
+var StyleSheet = require('react-style');
 var React = require('react');
 var Router = require('react-router');
 var { Route, DefaultRoute, RouteHandler, Link } = Router;
 
-var AppStyles = {
-
-  appStyle: ReactStyle({
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-    width: 1000,
-    height: 800
-  }),
-
-  masterStyle: ReactStyle({
-    position: 'absolute',
-    left: 0,
-    top: 0,
-    bottom: 0,
-    width: 200,
-    overflow: 'auto',
-    padding: '10px 40px'
-  }),
-
-  detailStyle: ReactStyle({
-    position: 'absolute',
-    left: 300,
-    top: 0,
-    bottom: 0,
-    right: 0,
-    borderLeft: '1px solid #ccc',
-    overflow: 'auto',
-    padding: 40
-  })
-};
 
 var App = React.createClass({
   getInitialState: function () {
@@ -62,6 +29,40 @@ var App = React.createClass({
         </div>
       </div>
     );
+  }
+});
+
+var AppStyles = StyleSheet.create({
+
+  appStyle: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    width: 1000,
+    height: 800
+  },
+
+  masterStyle: {
+    position: 'absolute',
+    left: 0,
+    top: 0,
+    bottom: 0,
+    width: 200,
+    overflow: 'auto',
+    padding: '10px 40px'
+  },
+
+  detailStyle: {
+    position: 'absolute',
+    left: 300,
+    top: 0,
+    bottom: 0,
+    right: 0,
+    borderLeft: '1px solid #ccc',
+    overflow: 'auto',
+    padding: 40
   }
 });
 
