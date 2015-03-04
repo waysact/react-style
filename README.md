@@ -104,8 +104,9 @@ you might want to use pseudo-classes (like styling a scrollbar) - which we do
 support.
 
 Media-queries are easily implemented inside the `render` function, using
-`Screen.width` for example. This is however not possible server side, so
-there are some setbacks to not supporting media-queries.
+`Screen.width` for example. Full media-query support will be added to React 
+Style after the upcoming release (inline-styles branch) and support both 
+inline styles as generated CSS.
 
 Animations inside CSS also introduce implicit behaviour, as CSS animations are
 decoupled from logic. By being decoupled, the state of the component is split
