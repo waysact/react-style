@@ -106,9 +106,9 @@ var ApplicationStyles = StyleSheet.create({
 
   lastChildStyle: {
     marginRight: 0
-  }
+  },
 
-  'screen and (min-width: 800px)': {
+  '@media screen and (min-width: 800px)': {
     normalStyle: {
       backgroundColor: 'purple'
     } 
