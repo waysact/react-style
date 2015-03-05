@@ -111,7 +111,10 @@ var ApplicationStyles = StyleSheet.create({
   '@media screen and (min-width: 800px)': {
     normalStyle: {
       backgroundColor: 'purple'
-    } 
+    },
+    pleh: {
+
+    }
   }
     
 });
