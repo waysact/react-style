@@ -6,11 +6,10 @@
 var StyleSheet = require('react-style');
 var React = require('react');
 
-class Button extends React.Component {
+class Button {
 
-  constructor(props) {
-    super(props);
-    this.state = {
+  getInitialState() {
+    return {
       focus: false,
       hover: false
     };
@@ -30,7 +29,7 @@ class Button extends React.Component {
       <button {...props} className="custom" styles={styles}
         onMouseEnter={() => this.setState({hover: true})}
         onMouseLeave={() => this.setState({hover: false})}
-        onFocus={() => this.setState({focus: true})}
+        onFocus={() => this.setState({focus:true})}
         onBlur={() => this.setState({focus: false})}>
         {props.children}
       </button>
@@ -76,4 +75,4 @@ var ButtonStyles = StyleSheet.create({
 
 });
 
-module.exports = Button;
+module.exports = React.createClass(Button.prototype);

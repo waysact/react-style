@@ -60,23 +60,29 @@ TODO: change to new syntax
 
 There's [React Style syntax][] which allows you to write styles like this:
 
-    var styles = ReactStyle`
-      color: red;
-      background-color: white;
+    var styles = StyleSheet.create`
+      .foo {
+        color: red;
+        background-color: white;
+      }
     `
 
 And have it transformed into:
 
-    var styles = ReactStyle({
-      color: 'red',
-      backgroundColor: 'white'
+    var styles = StyleSheet.create({
+      foo {
+        color: 'red',
+        backgroundColor: 'white'
+      }
     })
 
-This syntax is consistent with [ES6 tagged template literal][es6-templ]
+This syntax is consistent with [ES6 tagged template literal][es6-templ].
 
 The syntax helpers are convenient when transitioning a large CSS
 code base to React Style. It makes it possible to directly copy paste styles 
 from your CSS and later refactor them into a more modular form.
+
+Note that we only support classNames of 1 level deep.
 
 ## What's wrong with CSS/SCSS/less?
 A lot, and @vjeux covered it pretty good in his presentation: [CSS in JS][css-in-js]

@@ -12,12 +12,6 @@ module.exports = {
     path: path.join(__dirname),
     filename: 'bundle.js'
   },
-  resolve: {
-    alias: {
-      'react$': require.resolve('../../../node_modules/react'),
-      'react-style$': require.resolve('../../../lib/index')
-    }
-  },
   module: {
     loaders: [
       { test: /\.js$/,
