@@ -10,7 +10,7 @@
   "license": "MIT",
   "devDependencies": {
     "jsx-loader": "^0.12.2",
-    "react-style-webpack-plugin": "git+https://github.com/js-next/react-style-webpack-plugin.git#multiple-entries",
+    "react-style-webpack-plugin": "0.4.0",
     "css-loader": "^0.9.1",
     "normalize.css": "^3.0.2",
     "style-loader": "^0.8.2",
