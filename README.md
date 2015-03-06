@@ -56,8 +56,6 @@ Source Maps are supported, but only for the generated JavaScript.
 
 ## Syntax helpers for writing styles
 
-TODO: change to new syntax
-
 There's [React Style syntax][] which allows you to write styles like this:
 
     var styles = StyleSheet.create`
@@ -111,24 +109,13 @@ support.
 
 Media-queries are easily implemented inside the `render` function, using
 `Screen.width` for example. Full media-query support will be added to React 
-Style after the upcoming release (inline-styles branch) and support both 
-inline styles as generated CSS.
+Style in a future release and support both inline styles as generated CSS.
 
 Animations inside CSS also introduce implicit behaviour, as CSS animations are
 decoupled from logic. By being decoupled, the state of the component is split
 between the component and the CSS animation. We however believe state should be
 contained within a component. An example of solving this using JS is [React 
 Magician][react-magician].
-
-## React Router support
-
-Work in progress...
-
-## React Hot Loader support
-
-It's possible to use React Style with React Hot Loader, when you don't use
-react-style-webpack-plugin. If you do want to build CSS with React Style and
-use React Hot Loader - we recommend making multiple webpack profiles.
 
 License
 ---
