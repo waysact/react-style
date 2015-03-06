@@ -4,15 +4,11 @@
   "description": "Example app which demonstrates React Style along with React Router",
   "main": "index.js",
   "dependencies": {
-    "react-router": "git+https://github.com/SanderSpies/react-router.git#0.13-compat",
-    "react": "^0.13.0-rc2",
-    "react-style": "git+https://github.com/js-next/react-style#inline-styles"
+    "react-router": "0.12.4"
   },
-
   "devDependencies": {
     "jsx-loader": "^0.12.2",
     "react-style-webpack-plugin": "git+https://github.com/js-next/react-style-webpack-plugin.git#multiple-entries",
-    "react-style": "git+https://github.com/js-next/react-style#inline-styles",
     "css-loader": "^0.9.1",
     "normalize.css": "^3.0.2",
     "style-loader": "^0.8.2",

@@ -14,6 +14,13 @@ module.exports = {
     publicPath: "/"
   },
 
+  resolve: {
+    alias: {
+      'react$': require.resolve('../../../node_modules/react'),
+      'react-style$': require.resolve('../../../lib/index')
+    }
+  },
+
   module: {
     loaders: [
       { test: /\.js$/,
