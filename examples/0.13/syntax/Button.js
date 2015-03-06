@@ -4,12 +4,12 @@
 'use strict';
 
 var React       = require('react');
-var ReactStyle  = require('react-style');
+var StyleSheet  = require('react-style');
 
 var linearGradient = 'linear-gradient(transparent, rgba(0,0,0, 0.05) 40%, rgba(0,0,0, 0.10))';
-var ButtonStyles = {
+var ButtonStyles = StyleSheet.create`
 
-  normalStyle: ReactStyle`
+  .normalStyle {
     background-color: #E6E6E6;
     border: none rgba(0, 0, 0, 0);
     border-radius: 3px;
@@ -26,22 +26,23 @@ var ButtonStyles = {
     vertical-align: baseline;
     white-space: nowrap;
     zoom: 1;
-  `,
+  }
 
-  activeStyle: ReactStyle`
+  .activeStyle {
     box-shadow: 0 0 0 1px rgba(0,0,0, 0.15) inset, 0 0 6px rgba(0,0,0, 0.20) inset;
-  `,
+  }
 
-  hoverStyle: ReactStyle`
+  .hoverStyle {
     color: #000;
     background-image: ${linearGradient};
-  `,
+  }
 
-  focusStyle: ReactStyle`
+  .focusStyle {
     background-image: ${linearGradient};
     outline: none;
-  `
-};
+  }
+
+`;
 
 class Button extends React.Component {
 

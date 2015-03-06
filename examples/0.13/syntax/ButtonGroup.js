@@ -4,15 +4,15 @@
 'use strict';
 
 var React = require('react');
-var ReactStyle = require('react-style');
+var StyleSheet = require('react-style');
 
-var ButtonGroupStyles = {
+var ButtonGroupStyles = StyleSheet.create`
 
-  normalStyle: ReactStyle`
+  .normalStyle {
     display: inline;
-  `
+  }
 
-};
+`;
 
 class ButtonGroup extends React.Component {
 
