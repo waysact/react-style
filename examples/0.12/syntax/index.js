@@ -5,32 +5,33 @@
 
 require('normalize.css/normalize.css');
 
-var ReactStyle   = require('react-style');
+var StyleSheet   = require('react-style');
 var React        = require('react');
 var Icon         = require('react-fa');
 var Button       = require('./Button');
 var ButtonStyles = require('./ButtonStyles');
 var ButtonGroup  = require('./ButtonGroup');
 
-var TextAlignSwitcherStyles = {
+var TextAlignSwitcherStyles = StyleSheet.create`
 
-  childStyle: ReactStyle`
+  .childStyle {
     borderRadius: 0;
     margin: 0;
-  `,
+  }
 
-  firstChildStyle: ReactStyle`
+  .firstChildStyle {
     borderTopLeftRadius: 3px;
     borderBottomLeftRadius: 3px;
-  `,
+  }
 
-  lastChildStyle: ReactStyle`
+  .lastChildStyle {
     borderTopRightRadius: 3px;
     borderBottomRightRadius: 3px;
-  `
-};
+  }
 
-class TextAlignSwitcher extends React.Component {
+`;
+
+var TextAlignSwitcher = React.createClass({
 
   render() {
     var props = this.props;
@@ -58,41 +59,40 @@ class TextAlignSwitcher extends React.Component {
       </ButtonGroup>
     );
   }
+});
 
-}
 
-var ApplicationStyles = {
+var ApplicationStyles = StyleSheet.create`
 
-  normalStyle: ReactStyle`
+  .normalStyle {
     backgroundColor: white;
     fontSize: 10pt;
     padding: 1em;
     margin: 10px;
-  `,
+  }
 
-  childStyle: ReactStyle`
+  .childStyle {
     marginRight: 0.5em
-  `,
+  }
 
-  lastChildStyle: ReactStyle`
+  .lastChildStyle {
     marginRight: 0
-  `
+  }
 
-};
+`;
 
-class Application extends React.Component {
+var Application = React.createClass({
 
-  constructor(props) {
-    super(props);
-    this.state = {
+  getInitialState() {
+    return {
       textAlign: 'left'
     };
-  }
+  },
 
   render() {
     return (
       <div styles={ApplicationStyles.normalStyle}>
-        <h1 styles={ReactStyle({textAlign: this.state.textAlign})}>Application</h1>
+        <h1 styles={{textAlign: this.state.textAlign}}>Application</h1>
         <Button styles={[ButtonStyles.success]}>
           <Icon name="cog" /> OK
         </Button>
@@ -107,7 +107,7 @@ class Application extends React.Component {
     );
   }
 
-}
+});
 
 if (typeof window !== 'undefined') {
   React.render(<Application />, document.getElementById('app'));

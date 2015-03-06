@@ -4,17 +4,17 @@
 'use strict';
 
 var React = require('react');
-var ReactStyle = require('react-style');
+var StyleSheet = require('react-style');
 
-var ButtonGroupStyles = {
+var ButtonGroupStyles = StyleSheet.create`
 
-  normalStyle: ReactStyle`
+  .normalStyle {
     display: inline;
-  `
+  }
 
-};
+`;
 
-class ButtonGroup extends React.Component {
+class ButtonGroup {
 
   render() {
     return (
@@ -25,4 +25,5 @@ class ButtonGroup extends React.Component {
   }
 }
 
-module.exports = ButtonGroup;
+module.exports = React.createClass(ButtonGroup.prototype);
+
