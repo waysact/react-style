@@ -6,13 +6,15 @@
 require('normalize.css/normalize.css');
 
 var StyleSheet   = require('react-style');
+StyleSheet.maxOverridesLength = 1; // defaults to 10
+
 var React        = require('react');
 var Icon         = require('react-fa');
 var Button       = require('./Button');
 var ButtonStyles = require('./ButtonStyles');
 var ButtonGroup  = require('./ButtonGroup');
 
-class TextAlignSwitcher extends React.Component {
+var TextAlignSwitcher = React.createClass({
 
   render() {
     var props = this.props;
@@ -40,7 +42,7 @@ class TextAlignSwitcher extends React.Component {
       </ButtonGroup>
     );
   }
-}
+});
 
 var TextAlignSwitcherStyles = StyleSheet.create({
 
@@ -61,14 +63,13 @@ var TextAlignSwitcherStyles = StyleSheet.create({
 
 });
 
-class Application extends React.Component {
+var Application = React.createClass({
 
-  constructor(props) {
-    super(props);
-    this.state = {
+  getInitialState() {
+    return {
       textAlign: 'left'
     };
-  }
+  },
 
   render() {
     return (
@@ -88,7 +89,7 @@ class Application extends React.Component {
     );
   }
 
-}
+});
 
 
 var ApplicationStyles = StyleSheet.create({

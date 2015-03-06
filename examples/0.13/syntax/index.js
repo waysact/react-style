@@ -5,19 +5,36 @@
 
 require('normalize.css/normalize.css');
 
-var StyleSheet   = require('react-style');
-StyleSheet.maxOverridesLength = 1; // defaults to 10
-
+var ReactStyle   = require('react-style');
 var React        = require('react');
 var Icon         = require('react-fa');
 var Button       = require('./Button');
 var ButtonStyles = require('./ButtonStyles');
 var ButtonGroup  = require('./ButtonGroup');
 
+var TextAlignSwitcherStyles = {
+
+  childStyle: ReactStyle`
+    borderRadius: 0;
+    margin: 0;
+  `,
+
+  firstChildStyle: ReactStyle`
+    borderTopLeftRadius: 3px;
+    borderBottomLeftRadius: 3px;
+  `,
+
+  lastChildStyle: ReactStyle`
+    borderTopRightRadius: 3px;
+    borderBottomRightRadius: 3px;
+  `
+};
+
 class TextAlignSwitcher extends React.Component {
 
   render() {
     var props = this.props;
+
     return (
       <ButtonGroup styles={props.styles}>
         <Button
@@ -41,26 +58,27 @@ class TextAlignSwitcher extends React.Component {
       </ButtonGroup>
     );
   }
+
 }
 
-var TextAlignSwitcherStyles = StyleSheet.create({
+var ApplicationStyles = {
 
-  childStyle: {
-    borderRadius: 0,
-    margin: 0
-  },
+  normalStyle: ReactStyle`
+    backgroundColor: white;
+    fontSize: 10pt;
+    padding: 1em;
+    margin: 10px;
+  `,
 
-  firstChildStyle: {
-    borderTopLeftRadius: 3,
-    borderBottomLeftRadius: 3
-  },
+  childStyle: ReactStyle`
+    marginRight: 0.5em
+  `,
 
-  lastChildStyle: {
-    borderTopRightRadius: 3,
-    borderBottomRightRadius: 3
-  }
+  lastChildStyle: ReactStyle`
+    marginRight: 0
+  `
 
-});
+};
 
 class Application extends React.Component {
 
@@ -74,7 +92,7 @@ class Application extends React.Component {
   render() {
     return (
       <div styles={ApplicationStyles.normalStyle}>
-        <h1 styles={{textAlign: this.state.textAlign}}>Application</h1>
+        <h1 styles={ReactStyle({textAlign: this.state.textAlign})}>Application</h1>
         <Button styles={[ButtonStyles.success]}>
           <Icon name="cog" /> OK
         </Button>
@@ -84,32 +102,12 @@ class Application extends React.Component {
         <TextAlignSwitcher
           styles={ApplicationStyles.lastChild}
           onTextAlign={(textAlign) => this.setState({textAlign: textAlign})}
-          />
+        />
       </div>
     );
   }
 
 }
-
-
-var ApplicationStyles = StyleSheet.create({
-
-  normalStyle: {
-    backgroundColor: 'white',
-    fontSize: '10pt',
-    padding: '1em',
-    margin: 10
-  },
-
-  childStyle: {
-    marginRight: '0.5em'
-  },
-
-  lastChildStyle: {
-    marginRight: 0
-  }
-
-});
 
 if (typeof window !== 'undefined') {
   React.render(<Application />, document.getElementById('app'));
