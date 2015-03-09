@@ -56,27 +56,31 @@ Source Maps are supported, but only for the generated JavaScript.
 
 ## Syntax helpers for writing styles
 
-TODO: change to new syntax
-
 There's [React Style syntax][] which allows you to write styles like this:
 
-    var styles = ReactStyle`
-      color: red;
-      background-color: white;
+    var styles = StyleSheet.create`
+      .foo {
+        color: red;
+        background-color: white;
+      }
     `
 
 And have it transformed into:
 
-    var styles = ReactStyle({
-      color: 'red',
-      backgroundColor: 'white'
+    var styles = StyleSheet.create({
+      foo {
+        color: 'red',
+        backgroundColor: 'white'
+      }
     })
 
-This syntax is consistent with [ES6 tagged template literal][es6-templ]
+This syntax is consistent with [ES6 tagged template literal][es6-templ].
 
 The syntax helpers are convenient when transitioning a large CSS
 code base to React Style. It makes it possible to directly copy paste styles 
 from your CSS and later refactor them into a more modular form.
+
+Note that we only support classNames of 1 level deep.
 
 ## Support for media queries
 Media queries are supported by React Style with the following syntax:
@@ -120,21 +124,16 @@ will do the trick. In all, you don't need CSS for this. In some cases though
 you might want to use pseudo-classes (like styling a scrollbar) - which we do
 support.
 
+Media-queries are easily implemented inside the `render` function, using
+`Screen.width` for example. Full media-query support will be added to React 
+Style after the upcoming release (inline-styles branch) and support both 
+inline styles as generated CSS.
+
 Animations inside CSS also introduce implicit behaviour, as CSS animations are
 decoupled from logic. By being decoupled, the state of the component is split
 between the component and the CSS animation. We however believe state should be
 contained within a component. An example of solving this using JS is [React 
 Magician][react-magician].
-
-## React Router support
-
-We have something working, but it's not perfect yet. 
-
-## React Hot Loader support
-
-It's possible to use React Style with React Hot Loader, when you don't use
-react-style-webpack-plugin. If you do want to build CSS with React Style and
-use React Hot Loader - we recommend making multiple webpack profiles.
 
 License
 ---
