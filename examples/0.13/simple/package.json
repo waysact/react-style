@@ -17,6 +17,6 @@
   },
   "dependencies": {
     "react": "0.13.0-rc2",
-    "react-style": "git+https://github.com/js-next/react-style#inline-styles"
+    "react-style": "git+https://github.com/js-next/react-style#media-queries"
   }
 }

@@ -7,11 +7,12 @@ require('normalize.css/normalize.css');
 
 var StyleSheet   = require('react-style');
 var React        = require('react');
+var Icon         = require('react-fa');
 var Button       = require('./Button');
 var ButtonStyles = require('./ButtonStyles');
 var ButtonGroup  = require('./ButtonGroup');
 
-class TextAlignSwitcher extends React.Component {
+var TextAlignSwitcher = React.createClass({
 
   render() {
     var props = this.props;
@@ -22,24 +23,24 @@ class TextAlignSwitcher extends React.Component {
           active={props.textAlign === 'left'}
           onClick={() => {props.onTextAlign('left')}}
           styles={[TextAlignSwitcherStyles.childStyle, TextAlignSwitcherStyles.firstChildStyle]}>
-          Left
+          <Icon name="align-left" /> Left
         </Button>
         <Button
           active={props.textAlign === 'center'}
           onClick={() => {props.onTextAlign('center')}}
           styles={[TextAlignSwitcherStyles.childStyle]}>
-          Center
+          <Icon name="align-center" /> Center
         </Button>
         <Button
           active={props.textAlign === 'right'}
           onClick={() => {props.onTextAlign('right')}}
           styles={[TextAlignSwitcherStyles.childStyle, TextAlignSwitcherStyles.lastChildStyle]}>
-          Right
+          <Icon name="align-right" /> Right
         </Button>
       </ButtonGroup>
     );
   }
-}
+});
 
 var TextAlignSwitcherStyles = StyleSheet.create({
 
@@ -60,24 +61,23 @@ var TextAlignSwitcherStyles = StyleSheet.create({
 
 });
 
-class Application extends React.Component {
+var Application = React.createClass({
 
-  constructor(props) {
-    super(props);
-    this.state = {
+  getInitialState() {
+    return {
       textAlign: 'left'
     };
-  }
+  },
 
   render() {
     return (
       <div styles={ApplicationStyles.normalStyle}>
         <h1 styles={{textAlign: this.state.textAlign}}>Application</h1>
         <Button styles={[ButtonStyles.success]}>
-          OK
+          <Icon name="cog" /> OK
         </Button>
         <Button styles={[ButtonStyles.error, ApplicationStyles.childStyle]}>
-          Cancel
+          <Icon name="remove" /> Cancel
         </Button>
         <TextAlignSwitcher
           styles={ApplicationStyles.lastChild}
@@ -87,7 +87,7 @@ class Application extends React.Component {
     );
   }
 
-}
+});
 
 
 var ApplicationStyles = StyleSheet.create({
@@ -105,9 +105,19 @@ var ApplicationStyles = StyleSheet.create({
 
   lastChildStyle: {
     marginRight: 0
-  }
+  },
 
+  '@media screen and (min-width: 800px)': {
+    normalStyle: {
+      backgroundColor: 'purple'
+    },
+    pleh: {
+
+    }
+  }
+    
 });
+  
 
 if (typeof window !== 'undefined') {
   React.render(<Application />, document.getElementById('app'));
