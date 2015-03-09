@@ -7,7 +7,6 @@ require('normalize.css/normalize.css');
 
 var StyleSheet   = require('react-style');
 var React        = require('react');
-var Icon         = require('react-fa');
 var Button       = require('./Button');
 var ButtonStyles = require('./ButtonStyles');
 var ButtonGroup  = require('./ButtonGroup');
@@ -23,19 +22,19 @@ var TextAlignSwitcher = React.createClass({
           active={props.textAlign === 'left'}
           onClick={() => {props.onTextAlign('left')}}
           styles={[TextAlignSwitcherStyles.childStyle, TextAlignSwitcherStyles.firstChildStyle]}>
-          <Icon name="align-left" /> Left
+          Left
         </Button>
         <Button
           active={props.textAlign === 'center'}
           onClick={() => {props.onTextAlign('center')}}
           styles={[TextAlignSwitcherStyles.childStyle]}>
-          <Icon name="align-center" /> Center
+          Center
         </Button>
         <Button
           active={props.textAlign === 'right'}
           onClick={() => {props.onTextAlign('right')}}
           styles={[TextAlignSwitcherStyles.childStyle, TextAlignSwitcherStyles.lastChildStyle]}>
-          <Icon name="align-right" /> Right
+          Right
         </Button>
       </ButtonGroup>
     );
@@ -74,10 +73,10 @@ var Application = React.createClass({
       <div styles={ApplicationStyles.normalStyle}>
         <h1 styles={{textAlign: this.state.textAlign}}>Application</h1>
         <Button styles={[ButtonStyles.success]}>
-          <Icon name="cog" /> OK
+          OK
         </Button>
         <Button styles={[ButtonStyles.error, ApplicationStyles.childStyle]}>
-          <Icon name="remove" /> Cancel
+          Cancel
         </Button>
         <TextAlignSwitcher
           styles={ApplicationStyles.lastChild}
