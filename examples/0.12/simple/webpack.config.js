@@ -9,12 +9,6 @@ module.exports = {
     path: __dirname + '/build',
     publicPath: __dirname + '/build/'
   },
-  resolve: {
-    alias: {
-      'react$': require.resolve('../../../node_modules/react'),
-      'react-style$': require.resolve('../../../lib/index')
-    }
-  },
   module: {
     loaders: [
       {

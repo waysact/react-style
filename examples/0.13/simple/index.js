@@ -110,8 +110,8 @@ var ApplicationStyles = StyleSheet.create({
     normalStyle: {
       backgroundColor: 'purple'
     },
-    pleh: {
-
+    childStyle: {
+      marginLeft: 50
     }
   }
     
