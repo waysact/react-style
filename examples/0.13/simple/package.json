@@ -16,7 +16,7 @@
     "url-loader": "^0.5.5"
   },
   "dependencies": {
-    "react": "0.13.0-rc2",
+    "react": "0.13.0",
     "react-style": "git+https://github.com/js-next/react-style#media-queries"
   }
 }

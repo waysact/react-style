@@ -88,16 +88,18 @@ Media queries are supported by React Style with the following syntax:
     var fooStyles = StyleSheet.create({
         bar: {
            color: 'green'
+        },
+        '@media screen and (min-width: 800px)': {
+            bar: {
+                color: 'purple'
+            }
         }
     });
 
-    StyleSheet.matchMedia('screen and (min-width:200px)').assign({
-        bar: {
-            color: 'purple'
-        }
-    });
+If you want to use media queries inside the `render` function, we recommend
+using `window.matchMedia`.
 
-Still open for discussion! Input very welcome :-).
+Currently not supported by React Style Syntax helpers.
 
 ## What's wrong with CSS/SCSS/less?
 A lot, and @vjeux covered it pretty good in his presentation: [CSS in JS][css-in-js]
@@ -107,9 +109,9 @@ See https://github.com/facebook/react/pull/2196
 
 ## Not supported CSS features
 
-React Style does not support CSS selectors, pseudo-classes, media-queries
-and CSS animation. Mostly because we try to avoid implicit behaviour and
-want the user to make layout decisions inside the `render()` function.
+React Style does not support CSS selectors, pseudo-classes and CSS animation.
+Mostly because we try to avoid implicit behaviour and want the user to make
+layout decisions inside the `render()` function.
 
 CSS selectors introduce implicit behaviour by not having a direct link with
 the elements on which they're applied. Therefore there is no way of knowing
@@ -123,11 +125,6 @@ is easily added, in others (`active`, `focus`, `hover`, etc) plain JavaScript
 will do the trick. In all, you don't need CSS for this. In some cases though
 you might want to use pseudo-classes (like styling a scrollbar) - which we do
 support.
-
-Media-queries are easily implemented inside the `render` function, using
-`Screen.width` for example. Full media-query support will be added to React 
-Style after the upcoming release (inline-styles branch) and support both 
-inline styles as generated CSS.
 
 Animations inside CSS also introduce implicit behaviour, as CSS animations are
 decoupled from logic. By being decoupled, the state of the component is split
