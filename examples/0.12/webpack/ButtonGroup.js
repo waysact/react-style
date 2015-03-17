@@ -6,7 +6,7 @@
 var StyleSheet = require('react-style');
 var React = require('react');
 
-class ButtonGroup {
+var ButtonGroup = React.createClass({
 
   render() {
     return (
@@ -15,7 +15,8 @@ class ButtonGroup {
       </div>
     );
   }
-}
+
+});
 
 var ButtonGroupStyles = StyleSheet.create({
 
@@ -25,4 +26,4 @@ var ButtonGroupStyles = StyleSheet.create({
 
 });
 
-module.exports = React.createClass(ButtonGroup.prototype);
+module.exports = ButtonGroup;

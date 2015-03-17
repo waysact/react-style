@@ -11,7 +11,7 @@ var Button       = require('./Button');
 var ButtonStyles = require('./ButtonStyles');
 var ButtonGroup  = require('./ButtonGroup');
 
-class TextAlignSwitcher extends React.Component {
+var TextAlignSwitcher = React.createClass({
 
   render() {
     var props = this.props;
@@ -39,7 +39,7 @@ class TextAlignSwitcher extends React.Component {
       </ButtonGroup>
     );
   }
-}
+});
 
 var TextAlignSwitcherStyles = StyleSheet.create({
 
@@ -60,14 +60,13 @@ var TextAlignSwitcherStyles = StyleSheet.create({
 
 });
 
-class Application extends React.Component {
+var Application = React.createClass({
 
-  constructor(props) {
-    super(props);
-    this.state = {
+  getInitialState() {
+    return {
       textAlign: 'left'
     };
-  }
+  },
 
   render() {
     return (
@@ -87,7 +86,7 @@ class Application extends React.Component {
     );
   }
 
-}
+});
 
 
 var ApplicationStyles = StyleSheet.create({
@@ -105,9 +104,19 @@ var ApplicationStyles = StyleSheet.create({
 
   lastChildStyle: {
     marginRight: 0
-  }
+  },
 
+  '@media screen and (min-width: 800px)': {
+    normalStyle: {
+      backgroundColor: 'purple'
+    },
+    childStyle: {
+      marginLeft: 50
+    }
+  }
+    
 });
+  
 
 if (typeof window !== 'undefined') {
   React.render(<Application />, document.getElementById('app'));

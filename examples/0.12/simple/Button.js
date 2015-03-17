@@ -6,14 +6,14 @@
 var StyleSheet = require('react-style');
 var React = require('react');
 
-class Button {
+var Button = React.createClass({
 
   getInitialState() {
     return {
       focus: false,
       hover: false
     };
-  }
+  },
 
   render() {
     var props = this.props;
@@ -35,7 +35,7 @@ class Button {
       </button>
     );
   }
-}
+});
 
 
 var ButtonStyles = StyleSheet.create({
@@ -75,4 +75,4 @@ var ButtonStyles = StyleSheet.create({
 
 });
 
-module.exports = React.createClass(Button.prototype);
+module.exports = Button;

@@ -9,6 +9,12 @@ module.exports = {
     path: __dirname + '/build',
     publicPath: __dirname + '/build/'
   },
+  resolve: {
+    alias: {
+      'react$': require.resolve('../../../node_modules/react'),
+      'react-style$': require.resolve('../../../lib/index')
+    }
+  },
   module: {
     loaders: [
       {
@@ -28,7 +34,7 @@ module.exports = {
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        //NODE_ENV: JSON.stringify('production')
+        // NODE_ENV: JSON.stringify('production')
       }
     })
   ]

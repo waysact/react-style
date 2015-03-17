@@ -12,6 +12,12 @@ module.exports = {
     filename: "bundle.js",
     path: __dirname + "/build"
   },
+  resolve: {
+    alias: {
+      'react$': require.resolve('../../../node_modules/react'),
+      'react-style$': require.resolve('../../../lib/index')
+    }
+  },
   module: {
     loaders: [
       {
@@ -36,7 +42,7 @@ module.exports = {
     new webpack.DefinePlugin({
       'process.env': {
         // To enable production mode:
-         NODE_ENV: JSON.stringify('production')
+        // NODE_ENV: JSON.stringify('production')
       }
     })
   ]
